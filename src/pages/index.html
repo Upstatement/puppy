@@ -1,0 +1,13 @@
+---
+title: Puppy Starter
+---
+{% extends "@puppy/layouts/menu.twig" %}
+
+{% block content %}
+<h3 class="up-browser-h">Reading List</h3>
+<ul class="up-browser-list">
+{% for page in site.pages %}
+  <li><a href="{{ puppy.url(page) }}">{{ page.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

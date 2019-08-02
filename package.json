@@ -1,0 +1,59 @@
+{
+  "private": true,
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.4.1"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production gulp build",
+    "start": "gulp"
+  },
+  "dependencies": {
+    "@upstatement/puppy": "^0.1.0",
+    "jquery": "^3.3.1",
+    "ups-mixin-lib": "https://github.com/Upstatement/ups-mixin-lib.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@upstatement/eslint-config": "^0.4.2",
+    "@upstatement/prettier-config": "^0.3.0",
+    "autoprefixer": "^9.6.1",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.9.9",
+    "bs-fullscreen-message": "^1.1.0",
+    "css-loader": "^3.1.0",
+    "del": "^5.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "front-matter": "^3.0.2",
+    "gulp": "^4.0.2",
+    "gulp-data": "^1.2.0",
+    "gulp-debug": "^4.0.0",
+    "gulp-filter": "^6.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-load-plugins": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sort": "^2.0.0",
+    "gulp-twig": "^1.1.1",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^5.0.1",
+    "jsonfile": "^5.0.0",
+    "merge": "^1.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "pluralize": "^8.0.0",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^1.18.2",
+    "require-all": "^3.0.0",
+    "require-dir": "^1.2.0",
+    "sass": "^1.22.9",
+    "sass-loader": "^7.1.0",
+    "showdown": "^1.4.1",
+    "webpack": "^4.39.0",
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-modernizr-loader": "^5.0.0"
+  }
+}
