@@ -1,7 +1,5 @@
 # Welcome to Puppy Starter 👋
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/upstatement/puppy-starter)
-
 > The quickest way to a data-driven Twig based prototype
 
 This starter kit features...
@@ -14,7 +12,6 @@ This starter kit features...
 - Modernizr
 - Babel
 - Linters
-- Easy deployment to Netlify
 
 ## Prerequisites
 ![Prerequisite](https://img.shields.io/badge/node-10.13.0-blue.svg)
@@ -41,31 +38,6 @@ npm start
 npm run build
 npx serve dist
 ```
-
-### Deployment
-
-## Project Structure
-
-### /public
-
-### /src/data
-
-### /src/js
-
-### /src/pages
-
-### /src/scss
-
-### /src/templates
-
-### /.modernizrrc.js
-
-### /gulpfile.js
-
-### /postcss.config.js
-
-### /webpack.config.js
-
 
 ## 🤝Contributing
 
