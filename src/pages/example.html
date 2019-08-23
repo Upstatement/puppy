@@ -1,0 +1,27 @@
+---
+title: Example Page
+tags:
+  - One
+  - Two
+---
+{% extends "@puppy/layouts/base.twig" %}
+
+{% block content %}
+<h1>Puppy Examples</h1>
+
+<h2>API</h2>
+<p><strong>puppy.url(page) =></strong> {{ puppy.url(page) }}</p>
+<p><strong>puppy.siteUrl('foo') =></strong> {{ puppy.siteUrl('/foo') }}</p>
+<p><strong>puppy.staticUrl('favicon.ico') =></strong> {{ puppy.staticUrl('favicon.ico') }}</p>
+<p><strong>puppy.assetUrl('image.png') =></strong> {{ puppy.assetUrl('image.png') }}</p>
+
+<h2>Global Site Context (<code>site</code>)</h2>
+<pre>
+  {{ site | json_encode }}
+</pre>
+
+<h2>Current Page Context (<code>page</code>)</h2>
+<pre>
+  {{ page | json_encode }}
+</pre>
+{% endblock %}
