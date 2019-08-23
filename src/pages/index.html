@@ -6,8 +6,8 @@ title: Puppy Starter
 {% block content %}
 <h3 class="up-browser-h">Reading List</h3>
 <ul class="up-browser-list">
-{% for page in site.pages %}
-  <li><a href="{{ puppy.url(page) }}">{{ page.title }}</a></li>
+{% for p in site.pages if p.path != page.path %}
+  <li><a href="{{ puppy.url(p) }}">{{ p.title }}</a></li>
 {% endfor %}
 </ul>
 {% endblock %}
