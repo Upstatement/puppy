@@ -28,9 +28,6 @@ const html = async function() {
     publicPath: '/',
     pages: 'src/pages/**/*',
     data: 'src/data/**/*',
-    // TODO:
-    // prettyPermalinks: true,
-    // webpackAssetUrl('vendor.js') // will read from manifest which needs to be configured
   });
 
   const twig = $.twig({
