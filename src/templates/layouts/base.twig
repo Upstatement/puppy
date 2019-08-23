@@ -12,11 +12,11 @@
   </head>
   <body>
 
-  {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 
-  {% block scripts %}
-  <script type="text/javascript" src="{{ puppy.assetUrl('vendor.js') }}"></script>
-  <script type="text/javascript" src="{{ puppy.assetUrl('main.js') }}"></script>
-  {% endblock %}
+    {% block scripts %}
+    <script type="text/javascript" src="{{ puppy.assetUrl('vendor.js') }}"></script>
+    <script type="text/javascript" src="{{ puppy.assetUrl('main.js') }}"></script>
+    {% endblock %}
   </body>
 </html>

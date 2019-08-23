@@ -13,18 +13,13 @@
   </head>
   <body>
 
-  <header id="up-browser-hdr" class="up-browser-hdr">
-    <a href="{{ puppy.url('/') }}" class="up-browser-page-h">{{ page.title }} <small>Prototype</small></a>
-    <img class="up-upstatement-logo" src="{{ puppy.staticUrl('img/upstatement-logo-white-trans.png') }}">
-  </header>
+    <header id="up-browser-hdr" class="up-browser-hdr">
+      <a href="{{ puppy.url('/') }}" class="up-browser-page-h">{{ page.title }} <small>Prototype</small></a>
+      <img class="up-upstatement-logo" src="{{ puppy.staticUrl('img/upstatement-logo-white-trans.png') }}">
+    </header>
 
-  <div class="up-browser-mod">
-    {% block content %}{% endblock %}
-  </div>
-
-  {% block scripts %}
-  <script type="text/javascript" src="{{ puppy.assetUrl('vendor.js') }}"></script>
-  <script type="text/javascript" src="{{ puppy.assetUrl('main.js') }}"></script>
-  {% endblock %}
+    <div class="up-browser-mod">
+      {% block content %}{% endblock %}
+    </div>
   </body>
 </html>
