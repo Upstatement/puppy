@@ -9,7 +9,7 @@
     "start": "gulp"
   },
   "dependencies": {
-    "@upstatement/puppy": "^0.2.1",
+    "@upstatement/puppy": "^0.3.0",
     "@upstatement/upbase": "^1.0.0",
     "jquery": "^3.3.1"
   },
