@@ -28,7 +28,7 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               implementation: require('sass'),
-              includePaths: [...require('ups-mixin-lib').includePaths],
+              includePaths: [...require('@upstatement/upbase').includePaths],
             },
           },
         ],

@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@upstatement/puppy": "^0.2.1",
-    "jquery": "^3.3.1",
-    "ups-mixin-lib": "https://github.com/Upstatement/ups-mixin-lib.git"
+    "@upstatement/upbase": "^1.0.0",
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
