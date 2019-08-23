@@ -9,7 +9,7 @@
     "start": "gulp"
   },
   "dependencies": {
-    "@upstatement/puppy": "^0.1.0",
+    "@upstatement/puppy": "^0.2.1",
     "jquery": "^3.3.1",
     "ups-mixin-lib": "https://github.com/Upstatement/ups-mixin-lib.git"
   },
