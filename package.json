@@ -39,7 +39,7 @@
     "prettier": "^1.18.2",
     "sass": "^1.22.10",
     "sass-loader": "^7.3.1",
-    "webpack": "^4.39.2",
+    "webpack": "^4.39.3",
     "webpack-dev-middleware": "^3.7.0",
     "webpack-modernizr-loader": "^5.0.0"
   }
