@@ -24,6 +24,8 @@ nvm install
 npm install
 ```
 
+> Note: `@upstatement/puppy` is a private repository. If you are not logged into NPM locally, `npm install` will return the following error: `npm ERR! 404 Not Found - GET https://registry.npmjs.org/@upstatement/puppy/...`. To fix, run `npm login` using the credentials for NPM in 1Password (email is tech@upstatement.com). This will automatically generate a new `.npmrc` file at the root of your user directory `(~/.npmrc)`. Once logged in, you can re-run `npm install`.
+
 ## Usage
 
 ### Development
