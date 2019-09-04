@@ -9,6 +9,7 @@ module.exports = {
   entry: {
     main: ['./src/js/main.js', './src/scss/main.scss'],
     menu: ['./src/js/main.js', './src/scss/menu.scss'],
+    reset: './src/scss/reset.scss',
   },
   output: {
     path: path.resolve(__dirname, 'dist/assets'),

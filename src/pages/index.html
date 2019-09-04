@@ -1,13 +1,29 @@
 ---
 title: Puppy Starter
 ---
-{% extends "@puppy/layouts/menu.twig" %}
 
-{% block content %}
-<h3 class="up-browser-h">Reading List</h3>
-<ul class="up-browser-list">
-{% for p in site.pages if p.path != page.path %}
-  <li><a href="{{ puppy.url(p) }}">{{ p.title }}</a></li>
-{% endfor %}
-</ul>
+{% extends "@puppy/layouts/menu.twig" %} {% block menu %}
+<nav>
+  <ul class="menu">
+    {% for p in site.pages if p.path != page.path %}
+    <li>
+      <a class="menu__link" href="{{ puppy.url(p) }}">
+        <span>{{ p.title }}</span>
+        <svg
+          class="menu__arrow"
+          xmlns="http://www.w3.org/2000/svg"
+          width="21"
+          height="20"
+          viewBox="0 0 21 20"
+        >
+          <g fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M0,10 L20,10" />
+            <polyline points="10 20 20 10 10 0" />
+          </g>
+        </svg>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
 {% endblock %}
