@@ -8,18 +8,21 @@
     <title>{{ page.title }}</title>
 
     {% block styles %}
+    <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('reset.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('menu.css') }}">
     {% endblock %}
   </head>
   <body>
+    <main>
+      <header class="header">
+        <h1 class="title">{{ page.title }}</h1>
+      </header>
 
-    <header id="up-browser-hdr" class="up-browser-hdr">
-      <a href="{{ puppy.url('/') }}" class="up-browser-page-h">{{ page.title }} <small>Prototype</small></a>
-      <img class="up-upstatement-logo" src="{{ puppy.staticUrl('img/upstatement-logo-white-trans.png') }}">
-    </header>
+      {% block menu %}{% endblock %}
 
-    <div class="up-browser-mod">
-      {% block content %}{% endblock %}
-    </div>
+      <footer class="footer">
+        {% include '../svgs/menu/logo.twig' %}
+      </footer>
+    </main>
   </body>
 </html>
