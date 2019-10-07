@@ -18,7 +18,7 @@
     "@babel/preset-env": "^7.6.0",
     "@upstatement/eslint-config": "^0.4.2",
     "@upstatement/prettier-config": "^0.3.0",
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.6.4",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
