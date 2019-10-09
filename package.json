@@ -14,7 +14,7 @@
     "jquery": "^3.3.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.6.3",
     "@babel/preset-env": "^7.6.0",
     "@upstatement/eslint-config": "^0.4.2",
     "@upstatement/prettier-config": "^0.3.0",
