@@ -3,15 +3,15 @@
 $bp--sm: 600px;
 $bp--lg: 1000px;
 
-$gray--border: #ccc;
-$gray--text: #888;
+$gray--border: #cccccc;
+$gray--text: #888888;
 
 html {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 400;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
 }
 
 * {
@@ -66,8 +66,8 @@ main {
   }
 
   &:hover {
-    border-color: black;
-    color: black;
+    border-color: #000000;
+    color: #000000;
   }
 }
 
