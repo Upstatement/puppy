@@ -40,7 +40,7 @@
     "sass": "^1.22.12",
     "sass-loader": "^7.3.1",
     "webpack": "^4.40.1",
-    "webpack-dev-middleware": "^3.7.1",
+    "webpack-dev-middleware": "^3.7.2",
     "webpack-modernizr-loader": "^5.0.0"
   }
 }
