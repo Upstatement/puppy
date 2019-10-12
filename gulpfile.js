@@ -146,6 +146,7 @@ const clean = function() {
 const build = series(clean, publicFiles, bundle, html);
 
 module.exports = {
+  clean,
   build,
   serve,
   default: series(build, serve),

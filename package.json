@@ -5,8 +5,11 @@
     "npm": "6.4.1"
   },
   "scripts": {
+    "build:dev": "gulp build",
     "build": "NODE_ENV=production gulp build",
+    "clean": "gulp clean",
     "start": "gulp",
+    "test": "ava",
     "lint:scss": "stylelint ./src/scss/**/*"
   },
   "dependencies": {
@@ -20,11 +23,13 @@
     "@upstatement/eslint-config": "^0.4.2",
     "@upstatement/prettier-config": "^0.3.0",
     "autoprefixer": "^9.6.4",
+    "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.9.9",
     "bs-fullscreen-message": "^1.1.0",
+    "concat-stream": "^2.0.0",
     "css-loader": "^3.2.0",
     "del": "^5.1.0",
     "eslint": "^5.16.0",
@@ -42,8 +47,12 @@
     "sass-loader": "^7.3.1",
     "stylelint": "^11.1.1",
     "stylelint-config-sass-guidelines": "^6.1.0",
+    "through2": "^3.0.1",
     "webpack": "^4.41.1",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-modernizr-loader": "^5.0.0"
+  },
+  "ava": {
+    "babel": false
   }
 }
