@@ -2,6 +2,7 @@ language: node_js
 before_install:
   - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
 script:
+  - npm run lint
   - npm test
 env:
   global:

@@ -10,6 +10,8 @@
     "clean": "gulp clean",
     "start": "gulp",
     "test": "ava",
+    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:js": "eslint ./src/js/**/*",
     "lint:scss": "stylelint ./src/scss/**/*"
   },
   "dependencies": {
