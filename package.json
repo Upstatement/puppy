@@ -5,8 +5,13 @@
     "npm": "6.4.1"
   },
   "scripts": {
+    "build:dev": "gulp build",
     "build": "NODE_ENV=production gulp build",
+    "clean": "gulp clean",
     "start": "gulp",
+    "test": "ava",
+    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:js": "eslint ./src/js/**/*",
     "lint:scss": "stylelint ./src/scss/**/*"
   },
   "dependencies": {
@@ -20,6 +25,7 @@
     "@upstatement/eslint-config": "^0.4.2",
     "@upstatement/prettier-config": "^0.3.0",
     "autoprefixer": "^9.6.4",
+    "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
@@ -45,5 +51,8 @@
     "webpack": "^4.41.1",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-modernizr-loader": "^5.0.0"
+  },
+  "ava": {
+    "babel": false
   }
 }

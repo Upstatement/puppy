@@ -12,6 +12,7 @@ This starter kit features...
 - Modernizr
 - Babel
 - Linters
+- Lightweight test coverage with [AVA](https://github.com/avajs/ava)
 
 ## Prerequisites
 ![Prerequisite](https://img.shields.io/badge/node-10.13.0-blue.svg)
@@ -32,6 +33,13 @@ npm install
 
 ```sh
 npm start
+```
+
+### Testing
+
+```sh
+npm lint
+npm test
 ```
 
 ### Production

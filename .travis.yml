@@ -1,0 +1,9 @@
+language: node_js
+before_install:
+  - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+script:
+  - npm run lint
+  - npm test
+env:
+  global:
+    - secure: fNSDADle14GfenvZehY+xdrCRPXvdHpIptMCt540cU7shaLo4skNfCGBQZBgsYi2l+KMl8cW4wUmW8lF2AseZlaQdrXmdE6P0RSZu5kOusaVm3ofX85H2BdxeOiV/YwLN2AWG90B5xFiz1LRqDVpHKc+L4FWmIZXiT7Ds6bQsp33vUy+hEafu/8iRmEIRYgqcYSt9wEkSlKrJj9Q6jizIR0+CUFfE4T0fG5A2F1OzpSZg7aw2z4Liu1TNNpoLPgCmtWb8OXWSwq28AHE9k0ppsfUJRmeahUYrmYKaqSAgghs+QIK+0Ai4iZBhMzkaKQv2X11JaOjcR+Ttliw8XF7Szo2ADwdLyDaqwgpt3NT3LPEsqF5w9anI2VvYH3Z6w9hbeK4BRE5HyAxgsU1t9qV55B+9fb1+XL3io52uODrdUD5Z/gStaqfTlKPpq5FebRtTdxS09ikxNhiVe0Fhm9/PJ2lXsFsYoh4AjWG3H7jMfJ1Qf29D2JlXG3Q1xRpZaFZDqUPDxEgssAMI9WoNbiNHDmZk4JrXsVjYifsFgnT4XDMJsdTG92DLJG1y0IszMuA+Ie+AMmdekAZdC24Mv3lzq2UOVHUSBPLAf9JQsBGcTe5ynhfXZx8RVbXSNqSzem/J7Kb3bcEYNtWcbwwfZfwkIouJDrIC3ypg/AEdEBE+oM=
