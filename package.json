@@ -15,7 +15,7 @@
     "lint:scss": "stylelint ./src/scss/**/*"
   },
   "dependencies": {
-    "@upstatement/puppy": "^0.3.0",
+    "@upstatement/puppy": "^0.4.0",
     "@upstatement/upbase": "^1.0.0",
     "jquery": "^3.3.1"
   },
