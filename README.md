@@ -4,17 +4,19 @@
 
 This starter kit features...
 
-- A static prototyping framework (powered by Puppy) with Twig templates
+- A static prototyping framework (powered by [Puppy](https://github.com/Upstatement/puppy)) with Twig templates
 - Data fixtures
 - Sass
 - Webpack
 - PostCSS / Autoprefixer
 - Modernizr
 - Babel
-- Linters
-- Lightweight test coverage with [AVA](https://github.com/avajs/ava)
+- JS linting with [eslint](https://eslint.org/)
+- SCSS linting with [stylelint](https://github.com/stylelint/stylelint)
+- Code formatting with [prettier](https://prettier.io/)
 
 ## Prerequisites
+
 ![Prerequisite](https://img.shields.io/badge/node-10.13.0-blue.svg)
 ![Prerequisite](https://img.shields.io/badge/npm-6.4.1-blue.svg)
 
@@ -24,8 +26,6 @@ This starter kit features...
 nvm install
 npm install
 ```
-
-> Note: `@upstatement/puppy` is a private repository. If you are not logged into NPM locally, `npm install` will return the following error: `npm ERR! 404 Not Found - GET https://registry.npmjs.org/@upstatement/puppy/...`. To fix, run `npm login` using the credentials for NPM in 1Password (email is tech@upstatement.com). This will automatically generate a new `.npmrc` file at the root of your user directory `(~/.npmrc)`. Once logged in, you can re-run `npm install`.
 
 ## Usage
 
@@ -37,14 +37,25 @@ npm start
 
 # Check for JS/SCSS style violations prior to commit
 npm run lint
+
+# Fix the fixable linter violations
+npm run lint:fix
+
+# Format code with Prettier
+npm run format
 ```
 
 ### Production
 
 ```sh
+# Build for production
 npm run build
+
+# Serve locally using `serve`
 npx serve dist
 ```
+
+Publish the resulting `dist` directory to a static web server and you're done!
 
 ## 🤝Contributing
 
@@ -76,6 +87,6 @@ It will submit a PR to the repo updating dependencies whenever updates within th
 
 Copyright &copy; 2019 Upstatement, LLC
 
-***
+---
 
 A [Puppy](https://github.com/Upstatement/puppy) 🐶 powered project
