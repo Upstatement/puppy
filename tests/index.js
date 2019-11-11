@@ -5,10 +5,11 @@ const { promisify } = require('util');
 
 const exec = promisify(require('child_process').exec);
 
-const md5 = str => crypto
-  .createHash('md5')
-  .update(str)
-  .digest('hex');
+const md5 = str =>
+  crypto
+    .createHash('md5')
+    .update(str)
+    .digest('hex');
 
 const hashDirectory = glob =>
   new Promise((resolve, reject) => {
