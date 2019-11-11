@@ -32,14 +32,11 @@ npm install
 ### Development
 
 ```sh
+# Start a dev server
 npm start
-```
 
-### Testing
-
-```sh
-npm lint
-npm test
+# Check for JS/SCSS style violations prior to commit
+npm run lint
 ```
 
 ### Production
@@ -54,6 +51,26 @@ npx serve dist
 Contributions, issues and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/upstatement/puppy-starter/issues).
+
+### Testing
+
+This project includes lightweight test coverage to ensure that dependency updates don't break anything. It uses the [ava](https://github.com/avajs/ava) test runner, with tests executed on every PR using [Travis CI](http://travis-ci.org/).
+
+To run the tests locally:
+
+```sh
+npm test
+```
+
+Tests utilize [snapshot testing](https://github.com/avajs/ava/blob/master/docs/04-snapshot-testing.md) to ensure that generated files don't change in unexpected ways.
+
+If you're making updates to the starter template and _are_ expecting changes to generated files, you can run `npm test -- -u` to update test snapshots.
+
+### Dependabot
+
+Node dependencies are managed automatically using [Depandabot](https://dependabot.com/).
+
+It will submit a PR to the repo updating dependencies whenever updates within the specified version constraints are available.
 
 ## 📝License
 
