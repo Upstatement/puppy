@@ -12,7 +12,8 @@ const util = require('util');
 const isProduction = process.env.NODE_ENV === 'production';
 const bundler = webpack(webpackConfig);
 
-$.util.log('Build Mode: %s', isProduction ? 'Production' : 'Development');
+// eslint-disable-next-line
+console.log('Build Mode: %s', isProduction ? 'Production' : 'Development');
 
 /**
  * Compile HTML
