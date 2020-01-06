@@ -42,7 +42,7 @@
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^3.0.0",
-    "gulp-load-plugins": "^2.0.1",
+    "gulp-load-plugins": "^2.0.2",
     "gulp-twig": "^1.1.1",
     "husky": "^3.0.9",
     "lint-staged": "^9.4.2",
