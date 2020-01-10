@@ -50,7 +50,7 @@ You can deploy your work to Netlify with their [CLI tool](https://github.com/net
 
 ```
 npm install netlify-cli -g
-netlify login
+netlify init
 netlify deploy
 ```
 
