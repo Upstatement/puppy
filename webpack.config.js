@@ -1,5 +1,4 @@
-// eslint-disable-next-line
-const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
@@ -8,8 +7,7 @@ module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: {
     main: ['./src/js/main.js', './src/scss/main.scss'],
-    menu: ['./src/js/main.js', './src/scss/menu.scss'],
-    reset: './src/scss/reset.scss',
+    menu: './src/scss/menu.scss',
   },
   output: {
     path: path.resolve(__dirname, 'dist/assets'),
@@ -29,7 +27,6 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               implementation: require('sass'),
-              includePaths: [...require('@upstatement/upbase').includePaths],
             },
           },
         ],
@@ -57,6 +54,7 @@ module.exports = {
     },
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',

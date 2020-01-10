@@ -32,7 +32,7 @@ const html = async function() {
   });
 
   const twig = $.twig({
-    namespaces: { puppy: 'src/templates' },
+    namespaces: { templates: 'src/templates' },
     useFileContents: true,
   });
 
