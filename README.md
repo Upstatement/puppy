@@ -1,38 +1,23 @@
-# Welcome to Puppy Starter 👋
+# Your Next Great Prototype ![Prerequisite](https://img.shields.io/badge/node-10.13.0-blue.svg) ![Prerequisite](https://img.shields.io/badge/npm-6.4.1-blue.svg)
 
-> The quickest way to a data-driven Twig based prototype
+> Your next great prototype description
 
-This starter kit features...
-
-- A static prototyping framework (powered by [Puppy](https://github.com/Upstatement/puppy)) with Twig templates
-- Data fixtures
-- Sass
-- Webpack
-- PostCSS / Autoprefixer
-- Modernizr
-- Babel
-- JS linting with [eslint](https://eslint.org/)
-- SCSS linting with [stylelint](https://github.com/stylelint/stylelint)
-- Code formatting with [prettier](https://prettier.io/)
-
-## Prerequisites
-
-![Prerequisite](https://img.shields.io/badge/node-10.13.0-blue.svg)
-![Prerequisite](https://img.shields.io/badge/npm-6.4.1-blue.svg)
-
-## Install
+## ✨ Install
 
 ```sh
+# Install Node & NPM with [NVM](https://github.com/nvm-sh/nvm)
 nvm install
+
+# Install project dependencies
 npm install
 ```
 
-## Usage
+## 👩‍💻 Usage
 
 ### Development
 
 ```sh
-# Start a dev server
+# Start a local dev server
 npm start
 
 # Check for JS/SCSS style violations prior to commit
@@ -55,38 +40,24 @@ npm run build
 npx serve dist
 ```
 
-Publish the resulting `dist` directory to a static web server and you're done!
+### Deployment
 
-## 🤝Contributing
+The output of `npm run build` is a static site. You can drop the resulting `dist` directory on any web server.
 
-Contributions, issues and feature requests are welcome!
+An excellent choice is [Netlify](https://www.netlify.com/).
 
-Feel free to check the [issues page](https://github.com/upstatement/puppy-starter/issues).
+You can deploy your work to Netlify with their [CLI tool](https://github.com/netlify/cli).
 
-### Testing
-
-This project includes lightweight test coverage to ensure that dependency updates don't break anything. It uses the [ava](https://github.com/avajs/ava) test runner, with tests executed on every PR using [Travis CI](http://travis-ci.org/).
-
-To run the tests locally:
-
-```sh
-npm test
+```
+npm install netlify-cli -g
+netlify init
+netlify deploy
 ```
 
-Tests utilize [snapshot testing](https://github.com/avajs/ava/blob/master/docs/04-snapshot-testing.md) to ensure that generated files don't change in unexpected ways.
-
-If you're making updates to the starter template and _are_ expecting changes to generated files, you can run `npm test -- -u` to update test snapshots.
-
-### Dependabot
-
-Node dependencies are managed automatically using [Depandabot](https://dependabot.com/).
-
-It will submit a PR to the repo updating dependencies whenever updates within the specified version constraints are available.
-
-## 📝License
+## 📝 License
 
 Copyright &copy; 2020 Upstatement, LLC
 
 ---
 
-A [Puppy](https://github.com/Upstatement/puppy) 🐶 powered project
+A [Puppy](https://github.com/Upstatement/puppy-starter/wiki) 🐶 powered project

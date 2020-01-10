@@ -3,3 +3,6 @@
 npm-debug.log
 .DS_Store
 *.sublime-*
+
+# Local Netlify folder
+.netlify

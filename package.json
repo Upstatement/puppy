@@ -18,6 +18,28 @@
     "lint:fix-scss": "npm run lint:scss -- --fix",
     "format": "prettier --write **/*"
   },
+  "ava": {
+    "babel": false
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
     "@upstatement/puppy": "^0.5.0"
   },
@@ -33,49 +55,26 @@
     "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.9.9",
     "bs-fullscreen-message": "^1.1.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.4.0",
+    "css-loader": "^3.4.1",
     "del": "^5.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^3.0.0",
-    "gulp-load-plugins": "^2.0.1",
+    "gulp-load-plugins": "^2.0.2",
     "gulp-twig": "^1.1.1",
-    "husky": "^3.0.9",
+    "husky": "^4.0.4",
     "lint-staged": "^9.4.2",
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
-    "sass": "^1.24.1",
+    "sass": "^1.24.3",
     "sass-loader": "^7.3.1",
     "stylelint": "^12.0.1",
     "stylelint-config-sass-guidelines": "^6.1.0",
     "webpack": "^4.41.5",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-modernizr-loader": "^5.0.0"
-  },
-  "ava": {
-    "babel": false
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,css,json,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.scss": [
-      "stylelint --fix",
-      "git add"
-    ]
   }
 }
