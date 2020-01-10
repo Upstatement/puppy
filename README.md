@@ -85,7 +85,7 @@ It will submit a PR to the repo updating dependencies whenever updates within th
 
 ## 📝License
 
-Copyright &copy; 2019 Upstatement, LLC
+Copyright &copy; 2020 Upstatement, LLC
 
 ---
 
