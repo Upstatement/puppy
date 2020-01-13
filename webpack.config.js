@@ -1,13 +1,15 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// eslint-disable-next-line
+const webpack = require('webpack');
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 /** @type {webpack.Configuration} */
 module.exports = {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   entry: {
     main: ['./src/js/main.js', './src/scss/main.scss'],
-    menu: './src/scss/menu.scss',
+    menu: ['./src/js/main.js', './src/scss/menu.scss'],
+    reset: './src/scss/reset.scss',
   },
   output: {
     path: path.resolve(__dirname, 'dist/assets'),
@@ -54,7 +56,6 @@ module.exports = {
     },
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
