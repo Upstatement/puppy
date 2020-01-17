@@ -1,13 +1,22 @@
 ---
 title: 🐶 Tutorial
 description: Learn Puppy in 15 minutes or less
-menu: true
 ---
 
 {% extends "@templates/layouts/base.twig" %}
 
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('tutorial.css') }}">
+{% endblock %}
+
+{% block header %}
+<header class="header">
+  <h1 class="title">🐶 Tutorial</h1>
+</header>
+{% endblock %}
+
 {% block content %}
-<div class="tutorial">
+<main class="tutorial">
   <section id="intro">
     <h1>👋 Hi! I'm your new prototype.</h1>
 
@@ -79,7 +88,7 @@ menu: true
   <section id="deployment">
     <h2>VI. Deployment</h2>
     <ul>
-    
+
       <li>Deploy to Netlify</li>
     </ul>
   </section>
@@ -88,13 +97,6 @@ menu: true
     <h2>So long, for now!</h2>
     <p>Thanks for spending the past 15 minutes with me!</p>
     <p>If you think there's something in here you might want to refer back to, you can hide me from your index without deleting me by adding this to the top of <code>./src/pages/tutorial.html</code>:</p>
-
-    <pre><code>
-      ---
-      title: 🐶 Tutorial
-      menu: false
-      ---
-    </code></pre>
   </section>
   <!--
     <h2>Bonus: Advanced Topics</h2>
@@ -103,5 +105,13 @@ menu: true
       <li>Switch your templating engine</li>
     </ul>
   -->
-</div>
+</main>
 {% endblock %}
+
+{% block footer %}
+<footer class="footer">
+  {% include '@templates/svgs/menu/logo.twig' %}
+</footer>
+{% endblock %}
+
+{% block scripts %}{% endblock %}
