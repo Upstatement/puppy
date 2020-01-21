@@ -23,15 +23,6 @@ body {
   padding: 20px;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 1000px;
-  min-height: 100vh;
-  padding: 3vw;
-}
-
 .footer {
   align-items: center;
   display: flex;
@@ -42,5 +33,25 @@ main {
     color: $gray--text;
     height: auto;
     width: 120px;
+  }
+}
+
+.tutorial {
+  display: flex;
+
+  .sidebar {
+    border-right: 1px solid #eeeeee;
+    width: 40%;
+
+    .sidebar__inner {
+      padding: 20px;
+      position: fixed;
+      position: sticky;
+      top: 0;
+    }
+  }
+
+  .content {
+    padding: 20px 50px;
   }
 }
