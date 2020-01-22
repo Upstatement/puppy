@@ -5,26 +5,18 @@ description: Learn Puppy in 15 minutes or less
 
 {% extends "@templates/layouts/base.twig" %}
 
-{# {% block header %}
-<header class="header">
-  <h1 class="title">🐶 Tutorial</h1>
-</header>
-{% endblock %} #}
-
 {% block content %}
 <div class="tutorial">
-  <aside class="sidebar">
+  <nav class="sidebar">
     <div class="sidebar__inner">
-      <h1>🐶 Tutorial</h1>
-      <ul>
-        <li>Item</li>
-        <li>Item</li>
-        <li>Item</li>
-        <li>Item</li>
-        <li>Item</li>
+      <header>
+        <h1>🐶 Tutorial</h1>
+      </header>
+      <ul class="sidebar__items">
+        {# Populated with JS #}
       </ul>
     </div>
-  </aside>
+  </nav>
 
   <main class="content">
     <section id="intro">
@@ -125,4 +117,18 @@ description: Learn Puppy in 15 minutes or less
 </footer>
 {% endblock %}
 
-{% block scripts %}{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+  const navList = document.querySelector('.sidebar__items');
+  const sections = Array.from(document.querySelectorAll('section'));
+
+  sections.forEach(section => {
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.textContent = section.id;
+    link.setAttribute('href', `#${section.id}`);
+    listItem.appendChild(link);
+    navList.appendChild(listItem);
+  })
+</script>
+{% endblock %}

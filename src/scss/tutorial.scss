@@ -1,3 +1,5 @@
+@import 'reset';
+
 $gray--border: #cccccc;
 $gray--text: #888888;
 
@@ -15,8 +17,38 @@ html {
 }
 
 body {
+  line-height: 1.5;
   margin: 0;
   padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+code,
+pre {
+  background-color: #f6f4ff;
+  border-radius: 3px;
+  color: #805ad5;
+  font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  font-size: 0.85rem;
+  padding: 0.25rem;
 }
 
 .header {
@@ -25,6 +57,7 @@ body {
 
 .footer {
   align-items: center;
+  border-top: 1px solid #eeeeee;
   display: flex;
   justify-content: center;
   padding: 20px;
@@ -36,18 +69,52 @@ body {
   }
 }
 
+section {
+  margin-bottom: 100px;
+}
+
 .tutorial {
   display: flex;
 
   .sidebar {
     border-right: 1px solid #eeeeee;
-    width: 40%;
+    min-width: 300px;
+    width: 300px;
 
     .sidebar__inner {
-      padding: 20px;
       position: fixed;
       position: sticky;
       top: 0;
+
+      header {
+        border-bottom: 1px solid #eeeeee;
+        padding: 20px;
+
+        h1 {
+          font-size: 2rem;
+          margin: 0;
+        }
+      }
+    }
+
+    .sidebar__items {
+      li {
+        a {
+          color: #718096;
+          display: block;
+          font-size: 14px;
+          font-weight: 500;
+          padding: 18px 20px;
+          text-transform: capitalize;
+
+          &:hover,
+          &:focus {
+            background-color: #eeeeee;
+            color: #1a202c;
+            padding-left: 24px;
+          }
+        }
+      }
     }
   }
 
