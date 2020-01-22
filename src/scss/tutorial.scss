@@ -53,7 +53,7 @@ h5,
 h6 {
   color: $c-grey-900;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin: 2rem 0 1rem;
 }
 
 h1 {
@@ -69,12 +69,17 @@ h3 {
 }
 
 p {
-  margin-bottom: 10px;
+  margin-bottom: 1em;
 }
 
 a {
   color: $c-blue-600;
   transition: all 0.2s ease;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 2rem;
 }
 
 code,
@@ -85,6 +90,10 @@ pre {
   font-family: $ff-mono;
   font-size: 0.85rem;
   padding: 0.2rem 0.25rem;
+}
+
+strong {
+  font-weight: 700;
 }
 
 .header {
@@ -133,6 +142,9 @@ section {
     }
 
     .sidebar__items {
+      list-style: none;
+      padding: 0;
+
       li {
         a {
           color: $c-grey-600;
