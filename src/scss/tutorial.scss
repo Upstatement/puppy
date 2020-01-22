@@ -61,7 +61,11 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
 }
 
 p {
@@ -144,6 +148,11 @@ section {
             background-color: $c-grey-200;
             color: #1a202c;
             padding-left: 35px;
+          }
+
+          &.active {
+            background-color: $c-blue-100;
+            color: $c-blue-600;
           }
         }
       }

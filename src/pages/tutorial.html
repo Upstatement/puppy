@@ -32,10 +32,7 @@ description: Learn Puppy in 15 minutes or less
     </section>
 
     <section id="setup">
-      <h2 class="heading">
-        First things first...
-        <!-- <a class="heading__anchor" href="#setup">#</a> -->
-      </h2>
+      <h2 class="heading">First things first...</h2>
       <ul>
         <li>
           Crack open your favorite text editor (might I recommend <a href="https://code.visualstudio.com/">Visual Studio Code</a>?)
@@ -43,8 +40,6 @@ description: Learn Puppy in 15 minutes or less
         <li>Split your screen between your text editor and preferred web browser</li>
         <li>Keep your Terminal close by</li>
       </ul>
-
-      <button>Let's go!</button>
     </section>
 
     <section id="pages">
@@ -147,6 +142,22 @@ description: Learn Puppy in 15 minutes or less
     heading.appendChild(headingAnchor);
   })
 
+
+  // Active sidebar links
+  onHashChange();
+  window.addEventListener('hashchange', () => onHashChange(), false);
+
+  function onHashChange() {
+    const navLinks = Array.from(document.querySelectorAll('.sidebar li a'));
+    navLinks.forEach(l => l.classList.remove('active'));
+
+    const { hash } = window.location;
+    const activeNavLink = navLinks.find(l => l.hash === hash);
+    if (!activeNavLink) {
+      return;
+    }
+    activeNavLink.classList.add('active');
+  }
 
 </script>
 {% endblock %}
