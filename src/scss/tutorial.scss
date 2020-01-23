@@ -133,11 +133,9 @@ section {
 
       header {
         border-bottom: $border-grey;
-        padding: 20px;
-
-        h1 {
-          margin: 0;
-        }
+        font-size: 20px;
+        font-weight: 700;
+        padding: 20px 30px;
       }
     }
 
@@ -151,7 +149,7 @@ section {
           display: block;
           font-size: 14px;
           font-weight: 500;
-          padding: 18px 30px;
+          padding: 15px 30px;
           text-decoration: none;
           text-transform: capitalize;
 
@@ -172,6 +170,8 @@ section {
   }
 
   .content {
+    margin: 0 auto;
+    max-width: 700px;
     padding: 20px 50px;
 
     .heading {
