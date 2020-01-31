@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-env": "^7.8.4",
     "@upstatement/eslint-config": "^0.4.2",
     "@upstatement/prettier-config": "^0.3.0",
     "autoprefixer": "^9.7.1",
