@@ -29,7 +29,9 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               implementation: require('sass'),
-              includePaths: [...require('@upstatement/upbase').includePaths],
+              sassOptions: {
+                includePaths: [...require('@upstatement/upbase').includePaths],
+              },
             },
           },
         ],
