@@ -212,7 +212,7 @@ description: Learn Puppy in 15 minutes or less
 
       <p>We enjoy using <a href="https://sass-lang.com/">Sass</a> for CSS preprocessing so much that Puppy supports <code>.scss</code> compling by default!</p>
 
-      <p>Adding styles to your page is as simple as creating a new <code>.scss</code> file in the <code>src/scss</code> directory.</p>
+      <p>This means adding styles to your page is as simple as creating a new <code>.scss</code> file in the <code>src/scss</code> directory.</p>
 
       <p>Currently in <code>src/scss</code> we have:</p>
       
@@ -244,11 +244,11 @@ description: Learn Puppy in 15 minutes or less
 
       <br/>
 
-      <p>If you visit your <code>puppies.html</code> page...nothing has changed. That's because you need to import <code>puppies.scss</code> in your <code>main.scss</code> file!</p>
+      <p>If you visit your <code>puppies.html</code> page...nothing has changed. That's because you need to import <code>puppies.scss</code> in <code>main.scss</code>!</p>
       <pre>
       <code>
       @import 'tutorial';
-      @import 'puppies';
+      @import 'puppies'; // import your new stylesheet
       </code>
       </pre>
 
@@ -257,8 +257,7 @@ description: Learn Puppy in 15 minutes or less
       <p>Hit save and now visit your page. All your new styles should be applied! ✨</p>
 
       <h3>Link to a static asset</h3>
-      <code>puppy.staticUrl('favicon.ico')</code>
-      <code>puppy.assetUrl('image.png')</code>
+
     </section>
 
 
@@ -269,6 +268,12 @@ description: Learn Puppy in 15 minutes or less
         <li>Add a Javascript file</li>
         <li>Install and import a third party dependency</li>
       </ul>
+
+      <h3>Add a Javascript file</h3>
+
+      <p>Similar to adding styles, you can add <code>.js</code> files to the <code>src/js</code> directory that this starter comes with.</p>
+
+
     </section>
 
     <section id="deployment">
