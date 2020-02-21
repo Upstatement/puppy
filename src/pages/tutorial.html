@@ -63,28 +63,76 @@ description: Learn Puppy in 15 minutes or less
 
       <p>Pages live in the <code>./src/pages/</code> directory.</p>
 
-      <p></p>
+      <p>It only seems fitting for our first page to be about puppies! First, create a new file in the <code>/pages</code> directory called <code>puppies.html</code>.</p>
 
       <h3>Give it a name</h3>
-      <h3>Reference an asset in the <code>/public/</code> directory</h3>
-      <code>curl -L https://picsum.photos/400/400 > public/static/img/random-image.jpg</code>
+
+      <p>You can give your page metadata with YAML front matter headers. They look a little something like this:</p>
+
+      <pre>
+      ---
+      title: My Puppy Page
+      tags:
+      - Adorable
+      - Floofy
+      ---
+      </pre>
+
+      <br/>
+
+      <p>The name of your page can be defined in the <code>title</code> attribute. Now, if you return to the <a href="/" target="_blank" rel="noopener noreferrer">index</a>, you’ll see a link to your new page.</p>
 
       <h3>Leverage the power of Twig</h3>
+
+      <p>So, our page has a name…but it still doesn’t have any content. To start adding content, we can use Twig syntax to create flexible page templates.</p>
+
+      <p>We’ve provided a simple page layout template under the <code>./src/templates</code> directory. Now, in <code>puppies.html</code>, you can use the template and immediately start adding content like so:</p>
+
+      <h3>Reference an asset in the <code>/public/</code> directory</h3>
+
+      <p>All static images or assets you wish to use on your site can live in the <code>/public/static</code> directory.</p>
+        
+      <p>From there, you can call the built-in function <code>puppy.staticUrl(filename)</code> in your page template to display the asset.</p>
+        
+      <p>Let's see how this works by adding this picture to our <code>puppies.html</code> page:</p>
+
+      <img src="https://picsum.photos/id/237/300/300" alt="A puppy"/>
+
+      <p>To get the above photo as a file in your project, run this command in your terminal at the project root:</p>
+
+      <pre>curl -L  https://picsum.photos/id/237/300/300 > public/static/puppy.jpg</pre>
+      
+      <br/>
+
+      <p>You should now see the image in the <code>/public/static</code> directory. Here's how we can references this image in our page template:</p>
+
+      <p>Easy, right?</p>
+
       <h3>Separate markup and content with data</h3>
+
+      
 
     </section>
 
     <section id="styles">
       <h2 class="heading">Styles</h2>
+      <h3>In this section you'll learn how to...</h3>
       <ul>
         <li>Add a Sass file</li>
         <li>Link to a static asset (font, background image)</li>
       </ul>
+
+      <h3>Add a Sass file</h3>
+
+      <h3>Link to a static asset</h3>
+      <code>puppy.staticUrl('favicon.ico')</code>
+      <code>puppy.assetUrl('image.png')</code>
     </section>
 
 
     <section id="scripts">
       <h2 class="heading">Scripts</h2>
+      <h3>In this section you'll learn how to...</h3>
       <ul>
         <li>Add a Javascript file</li>
         <li>Install and import a third party dependency</li>
