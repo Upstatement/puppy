@@ -93,10 +93,12 @@ description: Learn Puppy in 15 minutes or less
       {{ "{% extends &quot;@templates/layouts/base.twig&quot; %}" }}
       {{ "{% block content %}" }}
 
-      &lt;h1&gt;My Puppy Page&lt;/h1&gt;
-      &lt;p&gt;A captivating description&lt;/p&gt;
-      
-      &lt;!-- Rest of content --&gt;
+      &lt;div class=&quot;puppy-page&quot;&gt; 
+        &lt;h1 class=&quot;puppy-page__heading&quot;&gt;My Puppy Page&lt;/h1&gt;
+        &lt;p&gt;A captivating description&lt;/p&gt;
+
+        &lt;!-- Rest of content --&gt;
+      &lt;/div&gt;
       
       {{ "{% endblock %}" }}
       </code>
@@ -129,11 +131,13 @@ description: Learn Puppy in 15 minutes or less
       {{ "{% extends &quot;@puppy/layouts/base.twig&quot; %}" }}
       {{ "{% block content %}" }}
 
-      &lt;h1&gt;My Puppy Page&lt;/h1&gt;
-      &lt;p&gt;A captivating description&lt;/p&gt;
+      &lt;div class=&quot;puppy-page&quot;&gt; 
+        &lt;h1 class=&quot;puppy-page__heading&quot;&gt;My Puppy Page&lt;/h1&gt;
+        &lt;p&gt;A captivating description&lt;/p&gt;
 
-      &lt;!-- Reference your image here --&gt;
-      &lt;img src={{ "{{ puppy.staticUrl('img/puppy.jpg') }}" }} /&gt;
+        &lt;!-- Reference your image here --&gt;
+        &lt;img src={{ "{{ puppy.staticUrl('img/puppy.jpg') }}" }} /&gt;
+      &lt;/div&gt;
       
       {{ "{% endblock %}" }}
       </code>
@@ -155,8 +159,6 @@ description: Learn Puppy in 15 minutes or less
 
       <pre>
       <code>
-      // dog-breeds.json
-
       [
         { &quot;name&quot;: &quot;Shiba Inu&quot;,
           &quot;link&quot;: &quot;https://en.wikipedia.org/wiki/Shiba_Inu&quot;
@@ -199,6 +201,7 @@ description: Learn Puppy in 15 minutes or less
 
     <section id="styles">
       <h2 class="heading">Styles</h2>
+
       <h3>In this section you'll learn how to...</h3>
       <ul>
         <li>Add a Sass file</li>
@@ -206,6 +209,52 @@ description: Learn Puppy in 15 minutes or less
       </ul>
 
       <h3>Add a Sass file</h3>
+
+      <p>We enjoy using <a href="https://sass-lang.com/">Sass</a> for CSS preprocessing so much that Puppy supports <code>.scss</code> compling by default!</p>
+
+      <p>Adding styles to your page is as simple as creating a new <code>.scss</code> file in the <code>src/scss</code> directory.</p>
+
+      <p>Currently in <code>src/scss</code> we have:</p>
+      
+      <ul>
+        <li><code>main.scss</code> - main stylesheet for your prototype that imports any individual stylesheets</li>
+        <li><code>tutorial.scss</code> - styles for this tutorial page</li>
+        <li><code>reset.scss</code> - styles to clear browser defaults</li>
+      </ul>
+
+      <br/>
+
+      <p>Ready to give your puppy page a makeover? Start by creating a new file called <code>puppies.scss</code> and placing it in <code>src/scss</code>.</p>
+      <pre>
+      <code> 
+      $light-blue: #bee3f8
+
+      .puppy-page {
+        background-color: $light-blue;
+        margin: 50px;
+      }
+      
+      .puppy-page__heading {
+        font-size: 48px;
+      }
+
+      // any additional styling
+      </code>
+      </pre>
+
+      <br/>
+
+      <p>If you visit your <code>puppies.html</code> page...nothing has changed. That's because you need to import <code>puppies.scss</code> in your <code>main.scss</code> file!</p>
+      <pre>
+      <code>
+      @import 'tutorial';
+      @import 'puppies';
+      </code>
+      </pre>
+
+      <br/>
+
+      <p>Hit save and now visit your page. All your new styles should be applied! ✨</p>
 
       <h3>Link to a static asset</h3>
       <code>puppy.staticUrl('favicon.ico')</code>
@@ -225,7 +274,6 @@ description: Learn Puppy in 15 minutes or less
     <section id="deployment">
       <h2 class="heading">Deployment</h2>
       <ul>
-
         <li>Deploy to Netlify</li>
       </ul>
     </section>
