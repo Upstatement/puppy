@@ -54,8 +54,8 @@ description: Learn Puppy in 15 minutes or less
       <ul>
         <li>Create your first page</li>
         <li>Give it a name</li>
-        <li>Reference an asset in the <code>/public/</code> directory</li>
         <li>Leverage the power of <a href="https://twig.symfony.com/" target="_blank" rel="noopener noreferrer">Twig</a></li>
+        <li>Reference an asset in the <code>/public/</code> directory</li>
         <li>Separate your content from the presentation layer</li>
       </ul>
 
@@ -84,34 +84,117 @@ description: Learn Puppy in 15 minutes or less
 
       <h3>Leverage the power of Twig</h3>
 
-      <p>So, our page has a name…but it still doesn’t have any content. To start adding content, we can use Twig syntax to create flexible page templates.</p>
+      <p>So, our page has a name…but it still doesn’t have any content. To start adding content, we can use <a href="https://twig.symfony.com/" target="_blank" rel="noopener noreferrer">Twig</a> syntax to create flexible page templates.</p> 
 
-      <p>We’ve provided a simple page layout template under the <code>./src/templates</code> directory. Now, in <code>puppies.html</code>, you can use the template and immediately start adding content like so:</p>
+      <p>We’ve provided a simple page layout template under <code>/src/templates/layouts</code>. Now, in <code>puppies.html</code>, you can extend the <code>base.twig</code> template and immediately start adding content like so:</p>
+
+      <pre>
+      <code>
+      {{ "{% extends &quot;@templates/layouts/base.twig&quot; %}" }}
+      {{ "{% block content %}" }}
+
+      &lt;h1&gt;My Puppy Page&lt;/h1&gt;
+      &lt;p&gt;A captivating description&lt;/p&gt;
+      
+      &lt;!-- Rest of content --&gt;
+      
+      {{ "{% endblock %}" }}
+      </code>
+      </pre>
+
+      <br/>
+
+      Check out your page to see your new content!
 
       <h3>Reference an asset in the <code>/public/</code> directory</h3>
 
-      <p>All static images or assets you wish to use on your site can live in the <code>/public/static</code> directory.</p>
+      <p>All static images or assets you wish to use on your site can be moved to the <code>/public/static</code> directory.</p>
         
-      <p>From there, you can call the built-in function <code>puppy.staticUrl(filename)</code> in your page template to display the asset.</p>
+      <p>From there, you can call the built-in function <code>puppy.staticUrl('path/to/file')</code> in your page template to display the asset.</p>
         
-      <p>Let's see how this works by adding this picture to our <code>puppies.html</code> page:</p>
+      <p>Let's see how this works by adding this adorable face to our <code>puppies.html</code> page:</p>
 
       <img src="https://picsum.photos/id/237/300/300" alt="A puppy"/>
 
       <p>To get the above photo as a file in your project, run this command in your terminal at the project root:</p>
 
-      <pre>curl -L  https://picsum.photos/id/237/300/300 > public/static/puppy.jpg</pre>
+      <pre>curl -L  https://picsum.photos/id/237/300/300 > public/static/img/puppy.jpg</pre>
       
       <br/>
 
-      <p>You should now see the image in the <code>/public/static</code> directory. Here's how we can references this image in our page template:</p>
+      <p>You should now see the image in the <code>/public/static/img</code> directory. Here's how we can reference this image in our page template:</p>
 
-      <p>Easy, right?</p>
+      <pre>
+      <code>
+      {{ "{% extends &quot;@puppy/layouts/base.twig&quot; %}" }}
+      {{ "{% block content %}" }}
+
+      &lt;h1&gt;My Puppy Page&lt;/h1&gt;
+      &lt;p&gt;A captivating description&lt;/p&gt;
+
+      &lt;!-- Reference your image here --&gt;
+      &lt;img src={{ "{{ puppy.staticUrl('img/puppy.jpg') }}" }} /&gt;
+      
+      {{ "{% endblock %}" }}
+      </code>
+      </pre>
+
+      <br/>
+
+      <p>You should now see the image on your page! Easy, right?</p>
 
       <h3>Separate markup and content with data</h3>
 
-      
+      <p>Now we know how to easily add content to a page. But what if we want to avoid hardcoding that content in our template markup?</p>
 
+      <p>Have no fear! Puppy allows you to <strong>easily separate your content from the presentation layer.</strong></p>
+
+      <p>Any structured data you want your page to access can live in the <code>/src/data</code> directory. Puppy supports JSON, JavaScript, and YML data file types.</p>
+
+      <p>Let's enhance our puppy page a bit by adding a list of dog breeds. To start, we can create a file in <code>/src/data</code> called <code>dog-breeds.json</code>:</p>
+
+      <pre>
+      <code>
+      // dog-breeds.json
+
+      [
+        { &quot;name&quot;: &quot;Shiba Inu&quot;,
+          &quot;link&quot;: &quot;https://en.wikipedia.org/wiki/Shiba_Inu&quot;
+        },
+        { &quot;name&quot;: &quot;Welsh Corgi&quot;,
+          &quot;link&quot;: &quot;https://en.wikipedia.org/wiki/Welsh_Corgi&quot;
+        },
+        { &quot;name&quot;: &quot;Labrador Retriever&quot;,
+          &quot;link&quot;: &quot;https://en.wikipedia.org/wiki/Labrador_Retriever&quot;
+        }  
+      ]
+      </code>
+      </pre>
+
+      <br/>
+
+      <p>Conveniently, all our data files can be accessed through a global <code>site.data</code> array. To import <code>dog-breeds.json</code> into our page template, all we have to do is call <code>site.data['dog-breeds.json']</code>.</p>
+
+      <pre>
+      <code>
+      &lt;h2&gt;Dog Breeds&lt;/h2&gt;
+
+      &lt;ul&gt;
+      {{ "{% for breed in site.data['dog-breeds.json'] %}" }}
+      &lt;li&gt;&lt;a href={{ "{{ breed.link }}" }}&gt;{{ "{{ breed.name }}" }}&lt;/a&gt;&lt;/li&gt;
+      {{ "{% endfor %}" }}
+      &lt;/ul&gt;
+      </code>
+      </pre>
+
+      <br/>
+
+      <p>If you visit your page now, you should see a list of breeds populated from your data!</p>
+
+      <br/>
+
+      <p>Congrats! Now you have all the tools you need to create a basic page in your prototype. 🎉</p>
+      <p>But we're just getting to the fun stuff - let's see how we can spruce up our page a bit with some styling!</p>
     </section>
 
     <section id="styles">
