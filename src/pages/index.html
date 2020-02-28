@@ -1,17 +1,46 @@
 ---
-title: Puppy Starter
+title: Puppy Starter —<br />Example
 ---
 
-{% extends "@puppy/layouts/menu.twig" %} {% block menu %}
-<nav>
-  <ul class="menu">
+{% extends "@puppy/layouts/menu.twig" %}
+{% block menu %}
+
+<nav class="home-menu">
+  <ul class="home-menu__list">
+
     {% for p in site.pages if p.path != page.path %}
-    <li>
-      <a class="menu__link" href="{{ puppy.url(p) }}">
-        <span>{{ p.title }}</span>
-        {% include '../templates/svgs/menu/arrow.twig' %}
-      </a>
-    </li>
+      <li class="home-menu__item{% if p.thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
+        <a class="home-menu__link" href="{{ puppy.url(p) }}">
+
+          {% if p.thumbnail %}
+          <div class="home-menu__images">
+            <img src="/static/img/{{p.thumbnail}}" alt="{{ p.title }}" />
+          </div>
+          {% endif %}
+
+          <div class="home-menu__text">
+            <div class="home-menu__text-inner">
+              <h2 class="home-menu__title">{{ p.title }}</h2>
+              {% if p.updated %}
+                <h4 class="home-menu__updated">Updated {{ p.updated }}</h4>
+              {% endif %}
+              {% if p.description %}
+              <p class="home-menu__description">{{ p.description }}</p>
+              {% endif %}
+              {% if p.thumbnail %}
+                {% include '../templates/svgs/menu/circle-arrow.twig' %}
+              {% endif %}
+            </div>
+          </div>
+
+          {% if not p.thumbnail %}
+            <div class="home-menu__images">
+              {% include '../templates/svgs/menu/circle-arrow.twig' %}
+            </div>
+          {% endif %}
+
+        </a>
+      </li>
     {% endfor %}
   </ul>
 </nav>

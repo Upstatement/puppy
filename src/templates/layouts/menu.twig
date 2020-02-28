@@ -13,15 +13,35 @@
     {% endblock %}
   </head>
   <body>
-    <main>
-      <header class="header">
-        <h1 class="title">{{ page.title }}</h1>
+    <main class="home-main">
+      <header class="home-header">
+        <h1 class="home-header__title">{{ page.title }}</h1>
+        <div class="home-header__ups-lockup">
+          {% include '../svgs/menu/ups-logo.twig' %}
+          {% if true %}
+          <nav class="home-header__outlinks">
+            <ul class="home-header__outlinks-list">
+                <li class="home-header__outlinks-item">
+                <a class="home-header__outlinks-link" href="#">Dropbox</a>
+              </li>
+              <li class="home-header__outlinks-item">
+                <a class="home-header__outlinks-link" href="#">Github</a>
+              </li>
+                <li class="home-header__outlinks-item">
+                <a class="home-header__outlinks-link" href="#">Trello</a>
+              </li>
+            </ul>
+          </nav>
+          {% endif %}
+        </div>
       </header>
 
       {% block menu %}{% endblock %}
 
-      <footer class="footer">
-        {% include '../svgs/menu/logo.twig' %}
+      <footer class="home-footer">
+        <div class="home-footer__inner">
+          <p><a href="https://github.com/Upstatement/puppy-starter">Built with Puppy</a>.</p>
+        </div>
       </footer>
     </main>
   </body>
