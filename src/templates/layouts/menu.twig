@@ -1,3 +1,5 @@
+{% set config = site.data['menu.json'] %}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,18 +20,14 @@
         <h1 class="home-header__title">{{ page.title }}</h1>
         <div class="home-header__ups-lockup">
           {% include '../svgs/menu/ups-logo.twig' %}
-          {% if true %}
+          {% if  config.header_links|length %}
           <nav class="home-header__outlinks">
             <ul class="home-header__outlinks-list">
-                <li class="home-header__outlinks-item">
-                <a class="home-header__outlinks-link" href="#">Dropbox</a>
-              </li>
+              {% for link in config.header_links %}
               <li class="home-header__outlinks-item">
-                <a class="home-header__outlinks-link" href="#">Github</a>
+                <a class="home-header__outlinks-link" href="{{ link.url }}">{{ link.label }}</a>
               </li>
-                <li class="home-header__outlinks-item">
-                <a class="home-header__outlinks-link" href="#">Trello</a>
-              </li>
+              {% endfor %}
             </ul>
           </nav>
           {% endif %}
