@@ -260,7 +260,6 @@ description: Learn Puppy in 15 minutes or less
 
     </section>
 
-
     <section id="scripts">
       <h2 class="heading">Scripts</h2>
       <h3>In this section you'll learn how to...</h3>
@@ -278,9 +277,46 @@ description: Learn Puppy in 15 minutes or less
 
     <section id="deployment">
       <h2 class="heading">Deployment</h2>
+
+      <p>Ready to share your work with the rest of the world? Puppy can generate a static site for you, which means it's super easy to deploy your prototype to a live web server. One of our top picks is <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>!</p>
+      
+      <h3>Deploy with Netlify</h3>
+
+      <p>When it comes to <a href="https://docs.netlify.com/site-deploys/create-deploys" target="_blank" rel="noopener noreferrer">deploying</a> to Netlify, you have a some options:</p>
+      
+      <h4>Deploy with Git (CD)</h4>
+      <p>If your site has a Git repository, you can link it to Netlify and <a href="https://docs.netlify.com/configure-builds/get-started/#basic-build-settings" target="_blank" rel="noopener noreferrer">configure the build settings</a> for CD (Continuous Deployment).</p>
+      <p>To add CD to your Puppy site, you can update your Netlify build settings to this:</p>
       <ul>
-        <li>Deploy to Netlify</li>
+        <li>Build command: <code>npm run build</code> - this builds your static site</li>
+        <li>Publish directory: <code>dist</code> - this is where your static site lives</li> 
       </ul>
+      <br/>
+      <p>If your project isn't at the root of your repository, you will need to update the "Base directory" and "Publish directory" settings to include the path to your project.</p>
+
+      <h4>Deploy with CLI</h4>
+
+      <p>You can also use the <a href="https://docs.netlify.com/cli/get-started" target="_blank" rel="noopener noreferrer">Netlify CLI</a> tool to manually trigger deploys.</p>
+
+      <p>Set up your project with these commands:</p>
+      <pre>
+      <code>
+      npm install netlify-cli -g      # Install netlify-cli
+      netlify login                   # Authenticate your Netlify account
+      netlify init                    # Initialize repo at project root
+      </code>
+      </pre>
+
+      <br>
+
+      <p>Whenever you're ready to deploy, you can run:</p>
+      <pre>
+      <code>
+      npm run build                   # Build your static site 
+      netlify deploy --dir=dist       # Deploy the dist directory
+      </code>
+      </pre>
+
     </section>
 
     <section id="outro">
