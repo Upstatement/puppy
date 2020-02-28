@@ -257,6 +257,19 @@ description: Learn Puppy in 15 minutes or less
 
       <h3>Link to a static asset</h3>
 
+      <p>In case you need to include any static assets in your SCSS files, you can drop those files in the <code>/public/static</code> directory and reference their path from <code>/static</code>.</p>
+
+      <p>For example, you can add your custom web fonts to <code>/public/static/fonts</code> and reference them like so:</p>
+      <pre>
+      <code>
+      @font-face {
+        font-family: 'My Custom Font';
+        src: url('/static/fonts/my-custom-font.woff2') format('woff2');
+        font-style: normal;
+        font-weight: 400;
+      }
+      </code>
+      </pre>
     </section>
 
     <section id="scripts">
