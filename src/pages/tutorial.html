@@ -23,7 +23,7 @@ description: Learn Puppy in 15 minutes or less
       <h1 class="heading">🐶 &nbsp; Puppy Tutorial &nbsp; 🐶</h1>
 
       <br>
-      
+
       <p>Welcome to Puppy! We're glad you're here. If you're reading this, you've already installed a Puppy project and have run <code>npm start</code>. We commend you!</p>
 
       <p>The goal of this tutorial is to guide you through setting up and deploying your first Puppy project. Some basic web development knowledge is required, but if you're a beginner, these concepts shouldn't be too hard to grasp. If this isn't your first Puppy party, feel free to delete this page and do your thing.</p>
@@ -161,11 +161,15 @@ description: Learn Puppy in 15 minutes or less
 
       <p>Now we know how to easily add content to a page. But what if we want to avoid hardcoding that content in our template markup?</p>
       <p>Have no fear! Puppy allows you to <strong>easily separate your content from the presentation layer.</strong></p>
-      <p>Any structured data you want your page to access can live in the <code>/src/data</code> directory. Puppy supports JSON, JavaScript, and YML data file types.</p>
-      <p>Let's enhance our puppy page a bit by adding a list of dog breeds. To start, we can create a file in <code>/src/data</code> called <code>dog-breeds.json</code>:</p>
+      <p>Any structured data you want your page to access can live in the <code>/src/data</code> directory. Puppy supports JSON, YAML, and JavaScript data file types.</p>
+      <p>Let's enhance our puppy page a bit by adding a list of dog breeds. To start, we can create a file in <code>/src/data</code>:</p>
+
+      <h4>JSON</h4>
 
       <pre>
       <code>
+      // dog-breeds.json
+
       [
         { &quot;name&quot;: &quot;Shiba Inu&quot;,
           &quot;link&quot;: &quot;https://en.wikipedia.org/wiki/Shiba_Inu&quot;
@@ -180,9 +184,45 @@ description: Learn Puppy in 15 minutes or less
       </code>
       </pre>
 
+      <h4>YAML</h4>
+      <pre>
+      <code>
+      # dog-breeds.yml
+
+      - name: Shiba Inu
+        link: https://en.wikipedia.org/wiki/Shiba_Inu
+      - name: Welsh Corgi
+        link: https://en.wikipedia.org/wiki/Welsh_Corgi
+      - name: Labrador Retriever
+        link: https://en.wikipedia.org/wiki/Labrador_Retriever
+      </code>
+      </pre>
+
+      <h4>JavaScript</h4>
+      <pre>
+      <code>
+      // dog-breeds.js
+
+      module.exports = [
+        { 
+          name: 'Shiba Inu',
+          link: 'https://en.wikipedia.org/wiki/Shiba_Inu'
+        },
+        { 
+          name: 'Welsh Corgi',
+          link: 'https://en.wikipedia.org/wiki/Welsh_Corgi'
+        },
+        { 
+          name: 'Labrador Retriever',
+          link: 'https://en.wikipedia.org/wiki/Labrador_Retriever'
+        }
+      ];
+      </code>
+      </pre>
+
       <br>
 
-      <p>Conveniently, all our data files can be accessed through a global <code>site.data</code> array. To import <code>dog-breeds.json</code> into our page template, all we have to do is <a href="https://twig.symfony.com/doc/3.x/tags/for.html">loop</a> through <code>site.data['dog-breeds.json']</code>.</p>
+      <p>Conveniently, all our data files can be accessed through a global <code>site.data</code> array. Say we want to use <code>dog-breeds.json</code> as our data source. All we have to do is <a href="https://twig.symfony.com/doc/3.x/tags/for.html">loop</a> through <code>site.data['dog-breeds.json']</code>.</p>
 
       <pre>
       <code>
