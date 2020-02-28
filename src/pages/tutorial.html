@@ -195,7 +195,7 @@ description: Learn Puppy in 15 minutes or less
 
       <br/>
 
-      <p>Congrats! Now you have all the tools you need to create a basic page in your prototype. 🎉</p>
+      <p>Congrats! Now you have all the tools you need to create a basic page in your prototype.&nbsp;🎉</p>
       <p>But we're just getting to the fun stuff - let's see how we can spruce up our page a bit with some styling!</p>
     </section>
 
@@ -227,17 +227,17 @@ description: Learn Puppy in 15 minutes or less
       <p>Ready to give your puppy page a makeover? Start by creating a new file called <code>puppies.scss</code> and placing it in <code>src/scss</code>.</p>
       <pre>
       <code> 
-      $light-blue: #bee3f8
+      $purple: #281072;
 
       .puppy-page {
-        background-color: $light-blue;
         margin: 50px;
       }
       
       .puppy-page__heading {
+        color: $purple;
         font-size: 48px;
       }
-
+      
       // any additional styling
       </code>
       </pre>
@@ -247,8 +247,7 @@ description: Learn Puppy in 15 minutes or less
       <p>If you visit your <code>puppies.html</code> page...nothing has changed. That's because you need to import <code>puppies.scss</code> in <code>main.scss</code>!</p>
       <pre>
       <code>
-      @import 'tutorial';
-      @import 'puppies'; // import your new stylesheet
+      @import 'puppies';
       </code>
       </pre>
 
@@ -271,7 +270,40 @@ description: Learn Puppy in 15 minutes or less
       <h3>Add a Javascript file</h3>
 
       <p>Similar to adding styles, you can add <code>.js</code> files to the <code>src/js</code> directory that this starter comes with.</p>
+      
+      <p>Let's try this out by adding a file called <code>puppy-alert.js</code> that simply shows an alert every time the puppy image is clicked.</p>
 
+      <pre>
+      <code>
+      document.querySelector('.puppy-page__image')
+        .addEventListener('click', () => alert('🐶'));
+      </code>
+      </pre>
+
+      <br>
+
+      <p>Before we can test our changes, we need to import our file in the provided <code>main.js</code> file in the <code>src/js</code> directory.</p>
+      <pre>
+      <code>
+      @import './puppy-alert';
+      </code>
+      </pre>
+
+      <br>
+
+      <p>Once that's done, our new JavaScript changes will be loaded on the page!</p>
+
+      <h3>Install and import a third party dependency</h3>
+
+      <p>You can add any third-party modules available on <a href="https://www.npmjs.com/">NPM</a> to your Puppy project by running <code>npm install &#x3C;module-name&#x3E;</code>.</p>
+
+      <p>To use the installed module, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">import</a> it where needed. For example:</p>
+
+      <pre>
+      <code>
+      import $ from 'jquery';
+      </code>
+      </pre>
 
     </section>
 
