@@ -49,7 +49,7 @@
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
-    "sass": "^1.24.3",
+    "sass": "^1.26.2",
     "sass-loader": "^8.0.2",
     "stylelint": "^12.0.1",
     "stylelint-config-sass-guidelines": "^6.1.0",
