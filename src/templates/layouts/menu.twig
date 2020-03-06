@@ -17,7 +17,6 @@
   <body>
     <main class="home-main">
       <header class="home-header">
-        <h1 class="home-header__title">{{ page.title }}</h1>
         <div class="home-header__ups-lockup">
           {% include '../svgs/menu/ups-logo.twig' %}
           {% if  config.header_links|length %}
@@ -32,6 +31,7 @@
           </nav>
           {% endif %}
         </div>
+        <h1 class="home-header__title">{{ page.title }}</h1>
       </header>
 
       {% block menu %}{% endblock %}
@@ -44,3 +44,4 @@
     </main>
   </body>
 </html>
+
