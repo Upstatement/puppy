@@ -92,6 +92,10 @@ pre {
   padding: 0.2rem 0.25rem;
 }
 
+pre {
+  overflow-x: auto;
+}
+
 strong {
   font-weight: 700;
 }
@@ -123,7 +127,7 @@ section {
   .sidebar {
     border-bottom: $border-grey;
     flex-shrink: 0;
-    width: 100%;
+    // width: 100%;
 
     .sidebar__inner {
       header {
@@ -165,8 +169,10 @@ section {
   }
 
   .content {
+    flex-shrink: 1;
     margin: 0 auto;
     max-width: 750px;
+    min-width: 0; // overrides code blocks expanding div width
     padding: 20px 50px;
 
     .heading {
@@ -199,7 +205,7 @@ section {
 
     .sidebar {
       border-right: $border-grey;
-      width: 250px;
+      width: 240px;
     }
 
     .sidebar__inner {
