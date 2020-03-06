@@ -118,19 +118,14 @@ section {
   margin-bottom: 100px;
 }
 
-.tutorial {
-  display: flex;
 
+.tutorial {
   .sidebar {
-    border-right: $border-grey;
-    min-width: 300px;
-    width: 300px;
+    border-bottom: $border-grey;
+    flex-shrink: 0;
+    width: 100%;
 
     .sidebar__inner {
-      position: fixed;
-      position: sticky;
-      top: 0;
-
       header {
         border-bottom: $border-grey;
         font-size: 20px;
@@ -194,6 +189,22 @@ section {
         text-decoration: none;
         transition: all 0.2s ease;
       }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .tutorial {
+    display: flex;
+
+    .sidebar {
+      border-right: $border-grey;
+      width: 250px;
+    }
+
+    .sidebar__inner {
+      position: sticky;
+      top: 0;
     }
   }
 }
