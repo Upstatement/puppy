@@ -232,7 +232,7 @@ description: Learn Puppy in 15 minutes or less
 
       &lt;ul&gt;
       {{ "{% for breed in site.data['dog-breeds.json'] %}" }}
-      &lt;li&gt;&lt;a href={{ "{{ breed.link }}" }}&gt;{{ "{{ breed.name }}" }}&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href={{ "{{ breed.link }}" }}&gt;{{ "{{ breed.name }}" }}&lt;/a&gt;&lt;/li&gt;
       {{ "{% endfor %}" }}
       &lt;/ul&gt;
       </code>
@@ -308,7 +308,7 @@ description: Learn Puppy in 15 minutes or less
       <h3>Link to a static asset</h3>
 
       <p>In case you need to include any static assets in your SASS files, you can drop those assets in the <code>/public/static</code> directory and reference their path from <code>/static</code>.</p>
-      <p>For example, you can add your custom web fonts to <code>/public/static/fonts</code> and reference them like so:</p>
+      <p>For example, you can add your custom web fonts to <code>/public/static/fonts</code> and import them into your CSS file like so:</p>
 
       <pre>
       <code>
@@ -378,7 +378,7 @@ description: Learn Puppy in 15 minutes or less
 
       <p>Ready to share your work with the rest of the world? Puppy can generate a static site for you, which means it's super easy to deploy your prototype to a live web server - one of our top picks is <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</a>!</p>
       
-      <h3>Deploy with Netlify</h3>
+      <h3>Deploy to Netlify</h3>
 
       <p>When it comes to <a href="https://docs.netlify.com/site-deploys/create-deploys" target="_blank" rel="noopener noreferrer">deploying</a> with Netlify, you have a some options:</p>
       
