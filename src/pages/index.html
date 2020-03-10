@@ -1,5 +1,6 @@
 ---
 title: Puppy Starter
+note: menu items can be edited via /src/data/menu.json
 ---
 
 {% extends "@puppy/layouts/menu.twig" %}
@@ -22,10 +23,10 @@ title: Puppy Starter
             <div class="home-menu__text-inner">
               <h2 class="home-menu__title">{{ p.title }}</h2>
               {% if p.updated %}
-                <h4 class="home-menu__updated">Updated {{ p.updated }}</h4>
+                <h4 class="home-menu__updated">{{ p.updated }}</h4>
               {% endif %}
               {% if p.description %}
-              <p class="home-menu__description">{{ p.description }}</p>
+                <p class="home-menu__description">{{ p.description }}</p>
               {% endif %}
               {% if p.thumbnail %}
                 {% include '../templates/svgs/menu/circle-arrow.twig' %}
