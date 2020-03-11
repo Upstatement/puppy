@@ -47,8 +47,6 @@ description: Learn Puppy in 15 minutes or less
     <section id="pages">
       <h2 class="heading">Pages</h2>
 
-      <p>Puppy is designed for rapid prototyping in code, something we do a lot of at <a href="https://www.upstatement.com/" target="_blank" rel="noopener noreferrer">Upstatement</a>. Puppy was initially born in 2015 as <strong>up-pe</strong> (<strong>Up</strong>statement <strong>P</strong>rototyping <strong>E</strong>nvironment).</p>
-
       <p>By default, the homepage of a Puppy project is the prototype <strong>index</strong>. It lists every page in your prototype. You can see it <a href="/" target="_blank" rel="noopener noreferrer">here</a>.</p>
       <p>This tutorial page is the only page you'll see right now. Let's change that!</p>
 
@@ -64,7 +62,7 @@ description: Learn Puppy in 15 minutes or less
       <h3>Create your first page</h3>
 
       <p>Pages live in the <code>/src/pages/</code> directory.</p>
-      <p>It only seems fitting for our first page to be about puppies! First, create a new file in the <code>/pages</code> directory called <code>puppies.html</code>.</p>
+      <p>It only seems fitting for our first page to be about puppies! First, create a new file in the <code>/src/pages</code> directory called <code>puppies.html</code>.</p>
 
       <h3>Give it a name</h3>
 
@@ -259,7 +257,7 @@ description: Learn Puppy in 15 minutes or less
 
       <h3>Add a Sass file</h3>
 
-      <p>We enjoy using <a href="https://sass-lang.com/" target="_blank" rel="noopener noreferrer">Sass</a> for CSS preprocessing so much that Puppy supports <code>.scss</code> compling by default!</p>
+      <p>We enjoy using <a href="https://sass-lang.com/" target="_blank" rel="noopener noreferrer">Sass</a> for CSS preprocessing so much that Puppy supports <code>.scss</code> compiling by default!</p>
       <p>This means adding styles to your page is as simple as creating a new <code>.scss</code> file in the <code>/src/scss</code> directory.</p>
       <p>Currently in <code>/src/scss</code> we have:</p>
       
@@ -339,7 +337,7 @@ description: Learn Puppy in 15 minutes or less
       <code>
       // in puppy-alert.js
 
-      document.querySelector('.puppy-page__image')
+      document.querySelector('.puppy-page__img')
         .addEventListener('click', () => alert('🐶'));
       </code>
       </pre>
@@ -352,7 +350,7 @@ description: Learn Puppy in 15 minutes or less
       <code>
       // in main.js
 
-      @import './puppy-alert';
+      import './puppy-alert';
       </code>
       </pre>
 
@@ -380,7 +378,7 @@ description: Learn Puppy in 15 minutes or less
       
       <h3>Deploy to Netlify</h3>
 
-      <p>When it comes to <a href="https://docs.netlify.com/site-deploys/create-deploys" target="_blank" rel="noopener noreferrer">deploying</a> with Netlify, you have a some options:</p>
+      <p>When it comes to <a href="https://docs.netlify.com/site-deploys/create-deploys" target="_blank" rel="noopener noreferrer">deploying</a> with Netlify, you have some options:</p>
       
       <h4>Deploy with Git (CD)</h4>
       <p>If your site has a Git repository, you can link it to Netlify and <a href="https://docs.netlify.com/configure-builds/get-started/#basic-build-settings" target="_blank" rel="noopener noreferrer">configure the build settings</a> for CD (Continuous Deployment).</p>
@@ -439,13 +437,6 @@ description: Learn Puppy in 15 minutes or less
       </code>
       </pre>
     </section>
-    <!--
-      <h2 class="heading">Bonus: Advanced Topics</h2>
-      <ul>
-        <li>Modifying Webpack config</li>
-        <li>Switch your templating engine</li>
-      </ul>
-    -->
   </main>
 </div>
 {% endblock %}
