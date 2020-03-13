@@ -120,7 +120,7 @@ tags:
       <br>
       <br>
 
-      <p>To get the above photo as a file in your project, run this command in a new terminal window at the project root:</p>
+      <p>To get the above photo as a file in your project, run this command in a new terminal tab/window at the project root:</p>
 
       <code>curl -L  https://picsum.photos/id/237/300/300 > public/static/img/puppy.jpg</code>
       
@@ -253,8 +253,8 @@ tags:
       
       <pre>
       <code>
-// in main.scss 
-
+// Project styles go here
+@import 'tutorial';
 @import 'puppies';
       </code>
       </pre>
@@ -394,6 +394,15 @@ description: Learn Puppy in 15 minutes or less
 hidden: true
 ---
       </pre>
+
+      <br>
+
+      <p>If you would rather <strong>remove this tutorial</strong> altogether make sure to:</p>
+      <ul>
+        <li>Remove the line importing <code>tutorial.scss</code> from <code>/src/scss/main.scss</code></li>
+        <li>Delete <code>/src/scss/tutorial.scss</code> itself</li>
+        <li>Delete <code>/src/pages/tutorial.html</code> (this page!)</li>
+      </ul>
     </section>
   </main>
 </div>
