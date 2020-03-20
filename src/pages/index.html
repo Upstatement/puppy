@@ -34,7 +34,7 @@ title: Prototype Index
 <nav class="home-menu">
   <ul class="home-menu__list">
 
-    {% for p in site.pages if p.path != page.path %}
+    {% for p in site.pages if p.path != page.path and p.menu != false %}
       <li class="home-menu__item{% if p.thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
         <a class="home-menu__link" href="{{ puppy.url(p) }}">
 
