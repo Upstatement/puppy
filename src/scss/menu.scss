@@ -56,12 +56,16 @@ svg {
 
 body {
   align-items: stretch;
+  background-color: $c-black;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   min-height: 100vh;
 }
 
+.home-content {
+  background-color: $c-white;
+}
 
 .home-header,
 .home-menu,
