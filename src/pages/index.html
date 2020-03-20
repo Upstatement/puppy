@@ -6,6 +6,8 @@ title: Prototype Index
 
 {% extends "@templates/layouts/base.twig" %}
 
+{% set config = site.data['menu.json'] %}
+
 {% block styles %}
 <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('menu.css') }}">
 {% endblock %}

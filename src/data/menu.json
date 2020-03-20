@@ -1,16 +1,8 @@
 {
   "header_links": [
     {
-      "label": "Dropbox",
-      "url": "https://dropbox.com"
-    },
-    {
-      "label": "GitHub",
-      "url": "https://github.com"
-    },
-    {
-      "label": "Trello",
-      "url": "https://trello.com"
+      "label": "Puppy Tutorial",
+      "url": "/tutorial.html"
     }
   ]
 }
