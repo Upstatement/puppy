@@ -125,10 +125,7 @@ const serve = function() {
   });
 
   // Recompile templates if any content changes.
-  watch(
-    ['src/pages/**/*.html', 'src/templates/**/*.twig', 'src/data/**/*.json'],
-    series(html, reload),
-  );
+  watch(['src/pages/**/*', 'src/templates/**/*', 'src/data/**/*'], series(html, reload));
 
   // Trigger static task when files in the public directory are changed.
   watch('public/**/*', series(publicFiles, reload));
