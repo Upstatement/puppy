@@ -1,0 +1,14 @@
+<nav>
+  <ul class="menu">
+    {% for p in site.pages if p.path != page.path and p.menu != false %}
+    {% if not p.hidden %}
+    <li>
+      <a class="menu__link" href="{{ puppy.url(p) }}">
+        <span>{{ p.title }}</span>
+        {% include '@templates/svgs/menu/arrow.twig' %}
+      </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</nav>

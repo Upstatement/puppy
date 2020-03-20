@@ -18,10 +18,30 @@
     "lint:fix-scss": "npm run lint:scss -- --fix",
     "format": "prettier --write **/*"
   },
+  "ava": {
+    "babel": false
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "dependencies": {
-    "@upstatement/puppy": "^0.5.0",
-    "@upstatement/upbase": "^1.0.0",
-    "jquery": "^3.3.1"
+    "@upstatement/puppy": "^0.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
@@ -56,27 +76,5 @@
     "webpack": "^4.41.5",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-modernizr-loader": "^5.0.0"
-  },
-  "ava": {
-    "babel": false
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,css,json,md}": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.scss": [
-      "stylelint --fix",
-      "git add"
-    ]
   }
 }

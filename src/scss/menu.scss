@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import 'reset';
 
 
 // Home vars
@@ -54,7 +54,7 @@ svg {
   max-width: 100%;
 }
 
-.home-main {
+body {
   align-items: stretch;
   display: flex;
   flex-direction: column;

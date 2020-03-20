@@ -1,12 +1,36 @@
 ---
 ## Note: menu items can be edited via /src/data/menu.json
 
-title: Puppy Starter
+title: Prototype Index
 ---
 
-{% extends "@puppy/layouts/menu.twig" %}
-{% block menu %}
+{% extends "@templates/layouts/base.twig" %}
 
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('menu.css') }}">
+{% endblock %}
+
+{% block header %}
+<header class="home-header">
+  <div class="home-header__ups-lockup">
+    {% include '@templates/svgs/menu/ups-logo.twig' %}
+    {% if config.header_links|length %}
+    <nav class="home-header__outlinks">
+      <ul class="home-header__outlinks-list">
+        {% for link in config.header_links %}
+        <li class="home-header__outlinks-item">
+          <a class="home-header__outlinks-link" href="{{ link.url }}">{{ link.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+  <h1 class="home-header__title">{{ page.title }}</h1>
+</header>
+{% endblock %}
+
+{% block content %}
 <nav class="home-menu">
   <ul class="home-menu__list">
 
@@ -47,3 +71,13 @@ title: Puppy Starter
   </ul>
 </nav>
 {% endblock %}
+
+{% block footer %}
+<footer class="home-footer">
+  <div class="home-footer__inner">
+    <p><a href="https://github.com/Upstatement/puppy-starter">Built with Puppy</a></p>
+  </div>
+</footer>
+{% endblock %}
+
+{% block scripts %}{% endblock %}
