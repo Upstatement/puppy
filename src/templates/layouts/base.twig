@@ -2,17 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description | e('html_attr') }}">
 
     {% block styles %}
     <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('main.css') }}">
     {% endblock %}
   </head>
   <body>
+    {% block header %}{% endblock header %}
 
     {% block content %}{% endblock %}
+
+    {% block footer %}{% endblock footer %}
 
     {% block scripts %}
     <script type="text/javascript" src="{{ puppy.assetUrl('vendor.js') }}"></script>

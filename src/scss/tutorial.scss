@@ -1,0 +1,220 @@
+@import 'reset';
+
+$c-grey-100: #f7fafc;
+$c-grey-200: #edf2f7;
+$c-grey-300: #e2e8f0;
+$c-grey-400: #cbd5e0;
+$c-grey-500: #a0aec0;
+$c-grey-600: #718096;
+$c-grey-700: #4a5568;
+$c-grey-800: #2d3748;
+$c-grey-900: #1a202c;
+
+$c-blue-100: #ebf8ff;
+$c-blue-200: #bee3f8;
+$c-blue-300: #90cdf4;
+$c-blue-400: #63b3ed;
+$c-blue-500: #4299e1;
+$c-blue-600: #3182ce;
+$c-blue-700: #2b6cb0;
+$c-blue-800: #2c5282;
+$c-blue-900: #2a4365;
+
+$border-grey: 1px solid $c-grey-200;
+
+$ff-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji';
+$ff-mono: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+
+html {
+  font-family: $ff-sans;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $c-grey-700;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $c-grey-900;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  color: $c-blue-600;
+  transition: all 0.2s ease;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 2rem;
+}
+
+code,
+pre {
+  background-color: $c-blue-100;
+  border-radius: 3px;
+  color: $c-blue-700;
+  font-family: $ff-mono;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.25rem;
+}
+
+pre {
+  padding: 0.2rem 1rem;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+strong {
+  font-weight: 700;
+}
+
+.header {
+  padding: 20px;
+}
+
+.footer {
+  align-items: center;
+  border-top: $border-grey;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+
+  .logo {
+    color: $c-grey-500;
+    height: auto;
+    width: 120px;
+  }
+}
+
+section {
+  margin-bottom: 100px;
+}
+
+
+.tutorial {
+  .sidebar {
+    border-bottom: $border-grey;
+    flex-shrink: 0;
+    // width: 100%;
+
+    .sidebar__inner {
+      header {
+        border-bottom: $border-grey;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 20px 30px;
+      }
+    }
+
+    .sidebar__items {
+      list-style: none;
+      padding: 0;
+
+      li {
+        a {
+          color: $c-grey-600;
+          display: block;
+          font-size: 14px;
+          font-weight: 500;
+          padding: 15px 30px;
+          text-decoration: none;
+          text-transform: capitalize;
+
+          &:hover,
+          &:focus {
+            background-color: $c-grey-200;
+            color: #1a202c;
+            padding-left: 35px;
+          }
+
+          &.active {
+            background-color: $c-blue-100;
+            color: $c-blue-600;
+          }
+        }
+      }
+    }
+  }
+
+  .content {
+    flex-shrink: 1;
+    margin: 0 auto;
+    max-width: 750px;
+    min-width: 0; // overrides code blocks expanding div width
+    padding: 20px 50px;
+
+    .heading {
+      position: relative;
+
+      &:hover,
+      &:focus {
+        .heading__anchor {
+          opacity: 1;
+        }
+      }
+
+      .heading__anchor {
+        color: $c-blue-600;
+        left: 0;
+        margin-left: -1em;
+        opacity: 0;
+        padding-right: 0.5em;
+        position: absolute;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .tutorial {
+    display: flex;
+
+    .sidebar {
+      border-right: $border-grey;
+      width: 240px;
+    }
+
+    .sidebar__inner {
+      position: sticky;
+      top: 0;
+    }
+  }
+}

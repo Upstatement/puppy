@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 const webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 /** @type {webpack.Configuration} */
 module.exports = {
@@ -29,9 +29,6 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               implementation: require('sass'),
-              sassOptions: {
-                includePaths: [...require('@upstatement/upbase').includePaths],
-              },
             },
           },
         ],

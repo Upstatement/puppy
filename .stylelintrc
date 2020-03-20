@@ -10,7 +10,7 @@
     "indentation": 2,
     "max-empty-lines": 3,
     "max-nesting-depth": 5,
-    "order/properties-alphabetical-order": true,
+    "order/properties-alphabetical-order": false,
     "selector-class-pattern": null,
     "selector-id-pattern": null,
     "selector-max-id": 2,
