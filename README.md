@@ -60,4 +60,4 @@ Copyright &copy; 2020 Upstatement, LLC
 
 ---
 
-A [Puppy](https://github.com/Upstatement/puppy-starter/wiki) 🐶 powered project
+A [Puppy](https://github.com/Upstatement/puppy/wiki) 🐶 powered project
