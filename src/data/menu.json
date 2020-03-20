@@ -1,4 +1,8 @@
 {
+  "logo": {
+    "url": "/static/img/ups-logo.svg",
+    "alt": "Upstatement"
+  },
   "header_links": [
     {
       "label": "Puppy Tutorial",

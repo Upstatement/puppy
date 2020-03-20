@@ -15,7 +15,10 @@ title: Prototype Index
 {% block header %}
 <header class="home-header">
   <div class="home-header__ups-lockup">
-    {% include '@templates/svgs/menu/ups-logo.twig' %}
+    {% if config.logo %}
+    <img class="logo" src="{{ config.logo.url }}" alt="{{ config.logo.alt | default('') }}" />
+    {% endif %}
+
     {% if config.header_links|length %}
     <nav class="home-header__outlinks">
       <ul class="home-header__outlinks-list">
