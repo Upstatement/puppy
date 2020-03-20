@@ -45,7 +45,7 @@ title: Prototype Index
 
           {% if p.thumbnail %}
           <div class="home-menu__images">
-            <img src="/static/img/{{p.thumbnail}}" alt="{{ p.title }}" />
+            <img src="{{ puppy.staticUrl('img/' ~ p.thumbnail) }}" alt="{{ p.title }}" />
           </div>
           {% endif %}
 
@@ -59,14 +59,14 @@ title: Prototype Index
                 <p class="home-menu__description">{{ p.description }}</p>
               {% endif %}
               {% if p.thumbnail %}
-                {% include '../templates/svgs/menu/circle-arrow.twig' %}
+                {% include '@templates/svgs/menu/circle-arrow.twig' %}
               {% endif %}
             </div>
           </div>
 
           {% if not p.thumbnail %}
             <div class="home-menu__images">
-              {% include '../templates/svgs/menu/circle-arrow.twig' %}
+              {% include '@templates/svgs/menu/circle-arrow.twig' %}
             </div>
           {% endif %}
 
