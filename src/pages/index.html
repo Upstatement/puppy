@@ -1,26 +1,87 @@
 ---
+## Note: menu items can be edited via /src/data/menu.json
+
 title: Prototype Index
 ---
 
 {% extends "@templates/layouts/base.twig" %}
+
+{% set config = site.data['menu.json'] %}
 
 {% block styles %}
 <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('menu.css') }}">
 {% endblock %}
 
 {% block header %}
-<header class="header">
-  <h1 class="title">Page Index</h1>
+<header class="home-header">
+  <div class="home-header__ups-lockup">
+    {% if config.logo %}
+    <img class="logo" src="{{ config.logo.url }}" alt="{{ config.logo.alt | default('') }}" />
+    {% endif %}
+
+    {% if config.header_links|length %}
+    <nav class="home-header__outlinks">
+      <ul class="home-header__outlinks-list">
+        {% for link in config.header_links %}
+        <li class="home-header__outlinks-item">
+          <a class="home-header__outlinks-link" href="{{ link.url }}">{{ link.label }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+  <h1 class="home-header__title">{{ page.title }}</h1>
 </header>
 {% endblock %}
 
 {% block content %}
-  {% include "@templates/partials/prototype-index.twig" %}
+<nav class="home-menu">
+  <ul class="home-menu__list">
+
+    {% for p in site.pages if p.path != page.path and p.menu != false %}
+      <li class="home-menu__item{% if p.thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
+        <a class="home-menu__link" href="{{ puppy.url(p) }}">
+
+          {% if p.thumbnail %}
+          <div class="home-menu__images">
+            <img src="{{ puppy.staticUrl('img/' ~ p.thumbnail) }}" alt="{{ p.title }}" />
+          </div>
+          {% endif %}
+
+          <div class="home-menu__text">
+            <div class="home-menu__text-inner">
+              <h2 class="home-menu__title">{{ p.title }}</h2>
+              {% if p.updated %}
+                <h4 class="home-menu__updated">{{ p.updated }}</h4>
+              {% endif %}
+              {% if p.description %}
+                <p class="home-menu__description">{{ p.description }}</p>
+              {% endif %}
+              {% if p.thumbnail %}
+                {% include '@templates/svgs/menu/circle-arrow.twig' %}
+              {% endif %}
+            </div>
+          </div>
+
+          {% if not p.thumbnail %}
+            <div class="home-menu__images">
+              {% include '@templates/svgs/menu/circle-arrow.twig' %}
+            </div>
+          {% endif %}
+
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
 {% endblock %}
 
 {% block footer %}
-<footer class="footer">
-  {% include '@templates/svgs/menu/logo.twig' %}
+<footer class="home-footer">
+  <div class="home-footer__inner">
+    <p><a href="https://github.com/Upstatement/puppy-starter">Built with Puppy</a></p>
+  </div>
 </footer>
 {% endblock %}
 

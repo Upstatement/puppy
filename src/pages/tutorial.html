@@ -1,6 +1,7 @@
 ---
 title: 🐶 Tutorial
 description: Learn Puppy in 15 minutes or less
+menu: false
 ---
 
 {% extends "@templates/layouts/base.twig" %}
@@ -414,7 +415,7 @@ hidden: true
 
 {% block footer %}
 <footer class="footer">
-  {% include '@templates/svgs/menu/logo.twig' %}
+  <img class="logo" src="{{ puppy.staticUrl('img/ups-logo.svg') }}" alt="Upstatement">
 </footer>
 {% endblock %}
 

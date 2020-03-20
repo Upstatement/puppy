@@ -11,11 +11,15 @@
     {% endblock %}
   </head>
   <body>
-    {% block header %}{% endblock header %}
+    <div class="home-content">
 
-    {% block content %}{% endblock %}
+      {% block header %}{% endblock header %}
 
-    {% block footer %}{% endblock footer %}
+      {% block content %}{% endblock %}
+
+      {% block footer %}{% endblock footer %}
+
+    </div>
 
     {% block scripts %}
     <script type="text/javascript" src="{{ puppy.assetUrl('vendor.js') }}"></script>
