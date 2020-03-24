@@ -1,6 +1,8 @@
-# Your Next Great Prototype ![Prerequisite](https://img.shields.io/badge/node-10.13.0-blue.svg) ![Prerequisite](https://img.shields.io/badge/npm-6.4.1-blue.svg)
+![puppy-placeholder](https://user-images.githubusercontent.com/1298086/77455316-0d2e8880-6dd0-11ea-9caf-77c2a902b3ef.png)
 
-> Your next great prototype description
+# {{ Your Next Great Prototype }} ![Prerequisite](https://img.shields.io/badge/node-10.13.0-blue.svg) ![Prerequisite](https://img.shields.io/badge/npm-6.4.1-blue.svg)
+
+> {{ Your next great prototype description }}
 
 ## ✨ Install
 
