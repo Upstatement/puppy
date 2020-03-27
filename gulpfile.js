@@ -6,6 +6,7 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const puppy = require('@upstatement/puppy');
+const gulpScreenshot = require('./build/gulp/plugins/screenshot');
 const stream = require('stream');
 const util = require('util');
 
@@ -132,6 +133,15 @@ const serve = function() {
 };
 
 /**
+ * Generate page screenshots.
+ */
+const screenshot = function() {
+  return src('./dist/**/*.html')
+    .pipe(gulpScreenshot())
+    .pipe(dest('dist'));
+};
+
+/**
  * Clean build directory
  */
 const clean = function() {
@@ -147,5 +157,6 @@ module.exports = {
   clean,
   build,
   serve,
+  screenshot,
   default: series(build, serve),
 };
