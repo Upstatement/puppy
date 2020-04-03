@@ -6,7 +6,7 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const puppy = require('@upstatement/puppy');
-const gulpScreenshot = require('./build/gulp/plugins/screenshot');
+const gulpScreenshot = require('@upstatement/puppy/lib/gulp/screenshots');
 const stream = require('stream');
 const util = require('util');
 
@@ -30,6 +30,7 @@ const html = async function() {
     publicPath: '/',
     pages: 'src/pages/**/*',
     data: 'src/data/**/*',
+    screenshots: 'src/screenshots/**/*',
   });
 
   const twig = $.twig({
@@ -63,6 +64,13 @@ const html = async function() {
  */
 const publicFiles = function() {
   return src('public/**/*').pipe(dest('dist'));
+};
+
+/**
+ * Copy screenshots to build directory
+ */
+const screenshotFiles = function() {
+  return src('src/screenshots/**/*').pipe(dest('dist/assets'));
 };
 
 /**
@@ -130,15 +138,19 @@ const serve = function() {
 
   // Trigger static task when files in the public directory are changed.
   watch('public/**/*', series(publicFiles, reload));
+  watch('src/screenshots/**/*', series(screenshotFiles, reload));
 };
 
 /**
  * Generate page screenshots.
+ *
+ * @todo Skip prototype index
+ * @todo Skip pages where `menu: false`
  */
 const screenshot = function() {
   return src('./dist/**/*.html')
     .pipe(gulpScreenshot())
-    .pipe(dest('dist'));
+    .pipe(dest('./src/screenshots'));
 };
 
 /**
@@ -151,12 +163,12 @@ const clean = function() {
 /**
  * Build task.
  */
-const build = series(clean, publicFiles, bundle, html);
+const build = series(clean, publicFiles, screenshotFiles, bundle, html);
 
 module.exports = {
   clean,
   build,
   serve,
-  screenshot,
+  screenshot: series(build, screenshot, build),
   default: series(build, serve),
 };

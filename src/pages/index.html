@@ -47,9 +47,9 @@ title: Prototype Index
           <div class="home-menu__images">
             <img src="{{ puppy.staticUrl('img/' ~ p.thumbnail) }}" alt="{{ p.title }}" />
           </div>
-          {% else %}
+          {% elseif p.screenshot %}
           <div class="home-menu__images">
-            <img src="{{ puppy.staticUrl('screenshots/' ~ p.path ~ '.png') }}" alt="{{ p.title }}" />
+            <img src="{{ puppy.assetUrl(p.screenshot.path) }}" alt="{{ p.title }}" />
           </div>
           {% endif %}
 
