@@ -63,18 +63,46 @@ title: Prototype Index
               {% endif %}
             </div>
           </div>
-
-          {% if not p.thumbnail %}
-            <div class="home-menu__images">
-              {% include '@templates/svgs/menu/circle-arrow.twig' %}
-            </div>
-          {% endif %}
-
         </a>
       </li>
     {% endfor %}
+
   </ul>
+
+{# Example groups #}
+
+{% for i in [1, 2] %}
+  <section class="home-menu__group">
+    <h3 class="home-menu__group-head">Group {{ i }}</h3>
+    <ul class="home-menu__group-pages">
+    {% for p in site.pages if p.path != page.path and p.menu != false %}
+      <li class="home-menu__group-item">
+        <a href="" class="home-menu__group-item-link">
+          {% if p.thumbnail %}
+            <img class="home-menu__small-thumb" src="{{ puppy.staticUrl('img/' ~ p.thumbnail) }}" alt="{{ p.title }}" />
+          {% endif %}
+          <div class="home-menu__small-text">
+            <div class="home-menu__small-text-inner">
+              <h2 class="home-menu__small-title">{{ p.title }}</h2>
+              {% if p.updated %}
+                <h4 class="home-menu__small-updated">{{ p.updated }}</h4>
+              {% endif %}
+            </div>
+            {% include '@templates/svgs/menu/circle-arrow.twig' %}
+          </div>
+        {# {% if p.description %}
+          <p class="home-menu__small-description">{{ p.description }}</p>
+        {% endif %} #}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  </section>
+{% endfor %}
+
 </nav>
+
+
 {% endblock %}
 
 {% block footer %}
