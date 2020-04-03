@@ -9,7 +9,6 @@ $home-max: 1100px;
 
 $bp-split-thumbed-item: $bp-xs;
 $bp-split-header: $bp-sm;
-$bp-groups-2-up: 0;
 $bp-groups-3-up: $bp-sm;
 
 $grid-gutter: 30px;
@@ -374,15 +373,12 @@ a.home-header__outlinks-link {
 }
 
 .home-menu__group-item {
+  @include grid-width(2);
   margin-bottom: $grid-gutter;
+  margin-right: $grid-gutter;
 
-  @media (min-width: $bp-groups-2-up) {
-    @include grid-width(2);
-    margin-right: $grid-gutter;
-
-    &:nth-of-type(2n) {
-      margin-right: 0;
-    }
+  &:nth-of-type(2n) {
+    margin-right: 0;
   }
 
   @media (min-width: $bp-groups-3-up) {
@@ -396,7 +392,6 @@ a.home-header__outlinks-link {
       margin-right: 0;
     }
   }
-
 }
 
 
