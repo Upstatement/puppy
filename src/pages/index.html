@@ -40,7 +40,8 @@ title: Prototype Index
   <ul class="home-menu__list">
 
     {% for p in site.pages if p.path != page.path and p.menu != false %}
-      <li class="home-menu__item{% if p.thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
+      {% set has_thumbnail = p.thumbnail or p.screenshot %}
+      <li class="home-menu__item{% if has_thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
         <a class="home-menu__link" href="{{ puppy.url(p) }}">
 
           {% if p.thumbnail %}
@@ -62,13 +63,13 @@ title: Prototype Index
               {% if p.description %}
                 <p class="home-menu__description">{{ p.description }}</p>
               {% endif %}
-              {% if p.thumbnail %}
+              {% if has_thumbnail %}
                 {% include '@templates/svgs/menu/circle-arrow.twig' %}
               {% endif %}
             </div>
           </div>
 
-          {% if not p.thumbnail %}
+          {% if not has_thumbnail %}
             <div class="home-menu__images">
               {% include '@templates/svgs/menu/circle-arrow.twig' %}
             </div>
