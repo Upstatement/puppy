@@ -139,7 +139,7 @@ const serve = function() {
  * @todo Skip prototype index
  * @todo Skip pages where `menu: false`
  */
-const screenshot = function() {
+const capture = function() {
   return src('./dist/**/*.html')
     .pipe(gulpScreenshot())
     .pipe(dest('./dist/screenshots'));
@@ -156,11 +156,12 @@ const clean = function() {
  * Build task.
  */
 const build = series(clean, publicFiles, bundle, html);
+const screenshot = series(build, capture, html);
 
 module.exports = {
   clean,
   build,
   serve,
-  screenshot: series(screenshot, html),
-  default: series(build, serve),
+  screenshot,
+  default: series(screenshot, serve),
 };
