@@ -30,7 +30,7 @@ const html = async function() {
     publicPath: '/',
     pages: 'src/pages/**/*',
     data: 'src/data/**/*',
-    screenshots: 'src/screenshots/**/*',
+    screenshots: 'dist/screenshots/**/*',
   });
 
   const twig = $.twig({
@@ -64,13 +64,6 @@ const html = async function() {
  */
 const publicFiles = function() {
   return src('public/**/*').pipe(dest('dist'));
-};
-
-/**
- * Copy screenshots to build directory
- */
-const screenshotFiles = function() {
-  return src('src/screenshots/**/*').pipe(dest('dist/assets'));
 };
 
 /**
@@ -138,7 +131,6 @@ const serve = function() {
 
   // Trigger static task when files in the public directory are changed.
   watch('public/**/*', series(publicFiles, reload));
-  watch('src/screenshots/**/*', series(screenshotFiles, reload));
 };
 
 /**
@@ -150,7 +142,7 @@ const serve = function() {
 const screenshot = function() {
   return src('./dist/**/*.html')
     .pipe(gulpScreenshot())
-    .pipe(dest('./src/screenshots'));
+    .pipe(dest('./dist/screenshots'));
 };
 
 /**
@@ -163,12 +155,12 @@ const clean = function() {
 /**
  * Build task.
  */
-const build = series(clean, publicFiles, screenshotFiles, bundle, html);
+const build = series(clean, publicFiles, bundle, html);
 
 module.exports = {
   clean,
   build,
   serve,
-  screenshot: series(build, screenshot, build),
+  screenshot: series(screenshot, html),
   default: series(build, serve),
 };
