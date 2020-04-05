@@ -2,6 +2,7 @@ const { src, dest, watch, series } = require('gulp');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 const $ = require('gulp-load-plugins')();
+const log = require('gulplog');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -12,9 +13,10 @@ const util = require('util');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const bundler = webpack(webpackConfig);
+const pipeline = util.promisify(stream.pipeline);
 
 // eslint-disable-next-line
-console.log('Build Mode: %s', isProduction ? 'Production' : 'Development');
+log.info('Build Mode: %s', isProduction ? 'Production' : 'Development');
 
 /**
  * Compile HTML
@@ -24,8 +26,6 @@ console.log('Build Mode: %s', isProduction ? 'Production' : 'Development');
  * - Minify HTML for optimized builds
  */
 const html = async function() {
-  const pipeline = util.promisify(stream.pipeline);
-
   const pages = await puppy({
     publicPath: '/',
     pages: 'src/pages/**/*',
@@ -76,7 +76,7 @@ const bundle = function() {
         reject(err);
       } else {
         // eslint-disable-next-line
-        console.log(
+        log.info(
           stats.toString({
             chunks: false,
             colors: true,
@@ -137,10 +137,7 @@ const serve = function() {
  * Generate page screenshots.
  */
 const capture = async function() {
-  const pipeline = util.promisify(stream.pipeline);
-
   const pages = await puppy({ pages: 'src/pages/**/*' });
-
   return pipeline(pages, gulpScreenshot(), dest('dist/screenshots'));
 };
 
@@ -152,15 +149,37 @@ const clean = function() {
 };
 
 /**
- * Build task.
+ * Helper for skipping tasks.
+ *
+ *
+ * @param {String} name
+ * @param {String} message
  */
-const build = series(clean, publicFiles, bundle, html);
-const screenshot = series(build, capture, publicFiles, html);
+const skipTask = function(name, message = '') {
+  return {
+    [name]: function(cb) {
+      if (message) {
+        log.info(message);
+      }
+      cb();
+    },
+  }[name];
+};
+
+/**
+ * Exported tasks.
+ */
+const screenshot = process.env.DISABLE_SCREENSHOTS
+  ? skipTask(
+    'screenshot',
+    `Skipping task! Reason: process.env.DISABLE_SCREENSHOTS=${process.env.DISABLE_SCREENSHOTS}`,
+  )
+  : series(capture, publicFiles, html);
+const build = series(clean, publicFiles, bundle, html, screenshot);
 
 module.exports = {
   clean,
   build,
   serve,
-  screenshot,
-  default: series(screenshot, serve),
+  default: series(build, serve),
 };
