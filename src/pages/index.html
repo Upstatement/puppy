@@ -40,17 +40,12 @@ title: Prototype Index
   <ul class="home-menu__list">
 
     {% for p in site.pages if p.path != page.path and p.menu != false %}
-      {% set has_thumbnail = p.thumbnail or p.screenshot %}
-      <li class="home-menu__item{% if has_thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
+      <li class="home-menu__item{% if p.screenshot %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
         <a class="home-menu__link" href="{{ puppy.url(p) }}">
 
-          {% if p.thumbnail %}
+          {% if p.screenshot %}
           <div class="home-menu__images">
-            <img src="{{ puppy.staticUrl('img/' ~ p.thumbnail) }}" alt="{{ p.title }}" />
-          </div>
-          {% elseif p.screenshot %}
-          <div class="home-menu__images">
-            <img src="{{ puppy.siteUrl('screenshots/' ~ p.screenshot.path) }}" alt="{{ p.title }}" />
+            <img src="{{ puppy.siteUrl('screenshots/' ~ p.screenshot) }}" alt="{{ p.title }}" />
           </div>
           {% endif %}
 
@@ -63,13 +58,13 @@ title: Prototype Index
               {% if p.description %}
                 <p class="home-menu__description">{{ p.description }}</p>
               {% endif %}
-              {% if has_thumbnail %}
+              {% if p.screenshot %}
                 {% include '@templates/svgs/menu/circle-arrow.twig' %}
               {% endif %}
             </div>
           </div>
 
-          {% if not has_thumbnail %}
+          {% if not p.screenshot %}
             <div class="home-menu__images">
               {% include '@templates/svgs/menu/circle-arrow.twig' %}
             </div>
