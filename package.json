@@ -9,7 +9,7 @@
     "build": "NODE_ENV=production gulp build",
     "clean": "gulp clean",
     "start": "gulp",
-    "screenshot": "gulp screenshot",
+    "screenshot": "NODE_ENV=production gulp screenshot",
     "test": "ava",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:fix": "npm run lint:fix-js && npm run lint:fix-scss",
