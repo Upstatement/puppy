@@ -135,14 +135,13 @@ const serve = function() {
 
 /**
  * Generate page screenshots.
- *
- * @todo Skip prototype index
- * @todo Skip pages where `menu: false`
  */
-const capture = function() {
-  return src('./src/pages/**/*')
-    .pipe(gulpScreenshot())
-    .pipe(dest('./dist/screenshots'));
+const capture = async function() {
+  const pipeline = util.promisify(stream.pipeline);
+
+  const pages = await puppy({ pages: 'src/pages/**/*' });
+
+  return pipeline(pages, gulpScreenshot(), dest('dist/screenshots'));
 };
 
 /**
