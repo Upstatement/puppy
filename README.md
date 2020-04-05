@@ -42,6 +42,25 @@ npm run build
 npx serve dist
 ```
 
+#### Thumbnail Previews
+
+By default, `npm run build` will capture screenshots of all pages for use in the prototype index.
+
+You can provide your own thumbnails by dropping a PNG in the `public/screenshots` directory and naming it after the source page with a `.png` suffix. For example:
+
+```
+src/pages/example.html -> public/screenshots/example.html.png
+src/pages/about/index.html -> public/screenshots/about/index.html.png
+```
+
+You can also disable screenshots entirely by adding `DISABLE_SCREENSHOTS=true` to the build script in `package.json`:
+
+```json
+  "scripts": {
+    "build": "NODE_ENV=production DISABLE_SCREENSHOTS=true gulp build",
+  }
+```
+
 ### Deployment
 
 The output of `npm run build` is a static site. You can drop the resulting `dist` directory on any web server.
