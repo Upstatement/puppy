@@ -137,6 +137,10 @@ const serve = function() {
 const capture = async function() {
   const pages = await puppy({ pages: 'src/pages/**/*' });
   const screenshot = gulpScreenshot({
+    viewport: {
+      width: 1000,
+      height: 750,
+    },
     exclude: page => page.thumbnail || page.thumbnail === false || page.menu === false,
   });
   return pipeline(pages, screenshot, dest('dist/thumbnails'));
