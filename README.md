@@ -46,11 +46,16 @@ npx serve dist
 
 By default, `npm run build` will capture screenshots of all pages for use as thumbnail previews in the prototype index.
 
-You can provide your own thumbnails by dropping a PNG in the `public/thumbnails` directory and naming it after the source page with a `.png` suffix. For example:
+You can provide your own thumbnails by dropping an image in the `public/thumbnails` directory and referencing its path in your page's front matter header:
 
-```
-src/pages/example.html -> public/screenshots/example.html.png
-src/pages/about/index.html -> public/screenshots/about/index.html.png
+**Page**: src/pages/example.html
+
+**Thumbnail**: public/screenshots/example.png
+
+**Front Matter**:
+
+```yml
+thumbnail: example.png
 ```
 
 You can also disable screenshots entirely by adding `DISABLE_SCREENSHOTS=true` to the build script in `package.json`:
