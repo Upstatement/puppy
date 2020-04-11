@@ -21,6 +21,6 @@ jobs:
       with:
         node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
         
-    - run: npm install
+    - run: npm ci
     - run: npm run lint
     - run: npm test
