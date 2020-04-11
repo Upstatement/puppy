@@ -44,9 +44,9 @@ npx serve dist
 
 #### Thumbnail Previews
 
-By default, `npm run build` will capture screenshots of all pages for use in the prototype index.
+By default, `npm run build` will capture screenshots of all pages for use as thumbnail previews in the prototype index.
 
-You can provide your own thumbnails by dropping a PNG in the `public/screenshots` directory and naming it after the source page with a `.png` suffix. For example:
+You can provide your own thumbnails by dropping a PNG in the `public/thumbnails` directory and naming it after the source page with a `.png` suffix. For example:
 
 ```
 src/pages/example.html -> public/screenshots/example.html.png

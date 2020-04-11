@@ -2,7 +2,7 @@
 ## Note: menu items can be edited via /src/data/menu.json
 
 title: Prototype Index
-screenshot: false
+thumbnail: false
 ---
 
 {% extends "@templates/layouts/base.twig" %}
@@ -41,12 +41,12 @@ screenshot: false
   <ul class="home-menu__list">
 
     {% for p in site.pages if p.path != page.path and p.menu != false %}
-      <li class="home-menu__item{% if p.screenshot %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
+      <li class="home-menu__item{% if p.thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
         <a class="home-menu__link" href="{{ puppy.url(p) }}">
 
-          {% if p.screenshot %}
+          {% if p.thumbnail %}
           <div class="home-menu__images">
-            <img src="{{ puppy.siteUrl('screenshots/' ~ p.screenshot) }}" alt="{{ p.title }}" />
+            <img src="{{ puppy.siteUrl('thumbnails/' ~ p.thumbnail) }}" alt="{{ p.title }}" />
           </div>
           {% endif %}
 
@@ -59,13 +59,13 @@ screenshot: false
               {% if p.description %}
                 <p class="home-menu__description">{{ p.description }}</p>
               {% endif %}
-              {% if p.screenshot %}
+              {% if p.thumbnail %}
                 {% include '@templates/svgs/menu/circle-arrow.twig' %}
               {% endif %}
             </div>
           </div>
 
-          {% if not p.screenshot %}
+          {% if not p.thumbnail %}
             <div class="home-menu__images">
               {% include '@templates/svgs/menu/circle-arrow.twig' %}
             </div>

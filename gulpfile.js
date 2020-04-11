@@ -29,7 +29,7 @@ const html = async function() {
     publicPath: '/',
     pages: 'src/pages/**/*',
     data: 'src/data/**/*',
-    screenshots: 'dist/screenshots/**/*',
+    screenshots: 'dist/thumbnails/**/*',
   });
 
   const twig = $.twig({
@@ -136,7 +136,10 @@ const serve = function() {
  */
 const capture = async function() {
   const pages = await puppy({ pages: 'src/pages/**/*' });
-  return pipeline(pages, gulpScreenshot(), dest('dist/screenshots'));
+  const screenshot = gulpScreenshot({
+    exclude: page => page.thumbnail || page.thumbnail === false || page.menu === false,
+  });
+  return pipeline(pages, screenshot, dest('dist/thumbnails'));
 };
 
 /**
