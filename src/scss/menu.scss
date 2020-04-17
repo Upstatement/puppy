@@ -104,8 +104,11 @@ svg {
   max-width: 100%;
 }
 
-img {
-  box-shadow: 0 0 5px rgba($c-black, 0.08);
+.home-menu__images,
+.home-menu__group-item-link {
+  img {
+    box-shadow: 0 0 5px rgba($c-black, 0.08);
+  }
 }
 
 body {
