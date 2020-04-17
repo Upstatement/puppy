@@ -9,6 +9,7 @@ module.exports = {
   entry: {
     main: ['./src/js/main.js', './src/scss/main.scss'],
     menu: ['./src/js/main.js', './src/scss/menu.scss'],
+    tutorial: './src/scss/tutorial.scss',
     reset: './src/scss/reset.scss',
   },
   output: {
