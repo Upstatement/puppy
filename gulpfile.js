@@ -154,32 +154,9 @@ const clean = function() {
 };
 
 /**
- * Helper for skipping tasks.
- *
- *
- * @param {String} name
- * @param {String} message
- */
-const skipTask = function(name, message = '') {
-  return {
-    [name]: function(cb) {
-      if (message) {
-        log.info(message);
-      }
-      cb();
-    },
-  }[name];
-};
-
-/**
  * Exported tasks.
  */
-const screenshot = process.env.DISABLE_SCREENSHOTS
-  ? skipTask(
-    'screenshot',
-    `Skipping task! Reason: process.env.DISABLE_SCREENSHOTS=${process.env.DISABLE_SCREENSHOTS}`,
-  )
-  : series(capture, publicFiles, html);
+const screenshot = series(capture, publicFiles, html);
 const build = series(clean, publicFiles, bundle, html, screenshot);
 
 module.exports = {
