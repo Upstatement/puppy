@@ -41,7 +41,7 @@ thumbnail: false
   <ul class="home-menu__list">
 
     {% for p in site.pages if p.path != page.path and p.menu != false %}
-      {% set thumbnail = p.thumbnail|default(p.screenshot) %}
+      {% set thumbnail = p.thumbnail matches '/auto/i' ? p.screenshot : p.thumbnail %}
 
       <li class="home-menu__item{% if thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
         <a class="home-menu__link" href="{{ puppy.url(p) }}">

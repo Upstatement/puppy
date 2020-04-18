@@ -141,7 +141,7 @@ const capture = async function() {
       width: 1000,
       height: 750,
     },
-    exclude: page => page.thumbnail || page.thumbnail === false || page.menu === false,
+    exclude: page => !page.thumbnail || !page.thumbnail.match(/auto/i),
   });
   return pipeline(pages, screenshot, dest('dist/thumbnails'));
 };
