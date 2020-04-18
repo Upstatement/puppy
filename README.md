@@ -44,9 +44,15 @@ npx serve dist
 
 #### Thumbnail Previews
 
-By default, `npm run build` will capture screenshots of all pages for use as thumbnail previews in the prototype index.
+You can capture screenshots of your pages by setting the `thumbnail` attribute to `auto` in your page's front matter header:
 
-You can provide your own thumbnails by dropping an image in the `public/thumbnails` directory and referencing its path in your page's front matter header:
+```yml
+thumbnail: auto
+```
+
+The next time you run `npm run build` a screenshot will be generated for that page and displayed in the prototype index.
+
+If the automated screenshots aren't cutting it, you can provide your own by dropping an image into the `public/thumbnails` directory and referencing its name in your page's front matter header:
 
 **Page**: src/pages/example.html
 
@@ -56,14 +62,6 @@ You can provide your own thumbnails by dropping an image in the `public/thumbnai
 
 ```yml
 thumbnail: example.png
-```
-
-You can also disable screenshots entirely by adding `DISABLE_SCREENSHOTS=true` to the build script in `package.json`:
-
-```json
-  "scripts": {
-    "build": "NODE_ENV=production DISABLE_SCREENSHOTS=true gulp build",
-  }
 ```
 
 ### Deployment
