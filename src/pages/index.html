@@ -7,6 +7,8 @@ title: Prototype Index
 {% extends "@templates/layouts/base.twig" %}
 
 {% set config = site.data['menu.json'] %}
+{% set groupedPages = site.pages|group('group') %}
+{% set ungroupedPages = groupedPages['undefined']|default([]) %}
 
 {% block styles %}
 <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('menu.css') }}">
@@ -37,9 +39,11 @@ title: Prototype Index
 
 {% block content %}
 <nav class="home-menu">
+
+  {% if ungroupedPages is not empty %}
   <ul class="home-menu__list">
 
-    {% for p in site.pages if p.path != page.path and p.menu != false %}
+    {% for p in ungroupedPages if p.path != page.path and p.menu != false %}
       <li class="home-menu__item{% if p.thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
         <a class="home-menu__link" href="{{ puppy.url(p) }}">
 
@@ -68,37 +72,36 @@ title: Prototype Index
     {% endfor %}
 
   </ul>
+  {% endif %}
 
-{# Example groups #}
-
-{% for i in [1, 2] %}
-  <section class="home-menu__group">
-    <h3 class="home-menu__group-head">Group {{ i }}</h3>
-    <ul class="home-menu__group-pages">
-    {% for p in site.pages if p.path != page.path and p.menu != false %}
-      <li class="home-menu__group-item">
-        <a href="" class="home-menu__group-item-link">
-          {% if p.thumbnail %}
-            <img class="home-menu__small-thumb" src="{{ puppy.staticUrl('img/' ~ p.thumbnail) }}" alt="{{ p.title }}" />
-          {% endif %}
-          <div class="home-menu__small-text">
-            <div class="home-menu__small-text-inner">
-              <h2 class="home-menu__small-title">{{ p.title }}</h2>
-              {% if p.updated %}
-                <h4 class="home-menu__small-updated">{{ p.updated }}</h4>
-              {% endif %}
+  {% for group, pages in groupedPages if group != 'undefined' %}
+    <section class="home-menu__group">
+      <h3 class="home-menu__group-head">Group {{ group }}</h3>
+      <ul class="home-menu__group-pages">
+      {% for p in pages if p.path != page.path and p.menu != false %}
+        <li class="home-menu__group-item">
+          <a href="" class="home-menu__group-item-link">
+            {% if p.thumbnail %}
+              <img class="home-menu__small-thumb" src="{{ puppy.staticUrl('img/' ~ p.thumbnail) }}" alt="{{ p.title }}" />
+            {% endif %}
+            <div class="home-menu__small-text">
+              <div class="home-menu__small-text-inner">
+                <h2 class="home-menu__small-title">{{ p.title }}</h2>
+                {% if p.updated %}
+                  <h4 class="home-menu__small-updated">{{ p.updated }}</h4>
+                {% endif %}
+              </div>
+              {% include '@templates/svgs/menu/circle-arrow.twig' %}
             </div>
-            {% include '@templates/svgs/menu/circle-arrow.twig' %}
-          </div>
-        {# {% if p.description %}
-          <p class="home-menu__small-description">{{ p.description }}</p>
-        {% endif %} #}
-        </a>
-      </li>
-    {% endfor %}
-    </ul>
-  </section>
-{% endfor %}
+          {# {% if p.description %}
+            <p class="home-menu__small-description">{{ p.description }}</p>
+          {% endif %} #}
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
 
 </nav>
 
