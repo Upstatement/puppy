@@ -76,7 +76,7 @@ title: Prototype Index
 
   {% for group, pages in groupedPages if group != 'undefined' %}
     <section class="home-menu__group">
-      <h3 class="home-menu__group-head">Group {{ group }}</h3>
+      <h3 class="home-menu__group-head">{{ group }}</h3>
       <ul class="home-menu__group-pages">
       {% for p in pages if p.path != page.path and p.menu != false %}
         <li class="home-menu__group-item">
