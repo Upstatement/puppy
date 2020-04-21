@@ -2,18 +2,20 @@ const { src, dest, watch, series } = require('gulp');
 const del = require('del');
 const browserSync = require('browser-sync').create();
 const $ = require('gulp-load-plugins')();
+const log = require('gulplog');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const puppy = require('@upstatement/puppy');
+const gulpScreenshot = require('@upstatement/puppy/lib/gulp/screenshots');
 const stream = require('stream');
 const util = require('util');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const bundler = webpack(webpackConfig);
+const pipeline = util.promisify(stream.pipeline);
 
-// eslint-disable-next-line
-console.log('Build Mode: %s', isProduction ? 'Production' : 'Development');
+log.info('Build Mode: %s', isProduction ? 'Production' : 'Development');
 
 /**
  * Compile HTML
@@ -23,12 +25,11 @@ console.log('Build Mode: %s', isProduction ? 'Production' : 'Development');
  * - Minify HTML for optimized builds
  */
 const html = async function() {
-  const pipeline = util.promisify(stream.pipeline);
-
   const pages = await puppy({
     publicPath: '/',
     pages: 'src/pages/**/*',
     data: 'src/data/**/*',
+    screenshots: 'dist/thumbnails/**/*',
   });
 
   const twig = $.twig({
@@ -73,8 +74,7 @@ const bundle = function() {
       if (err) {
         reject(err);
       } else {
-        // eslint-disable-next-line
-        console.log(
+        log.info(
           stats.toString({
             chunks: false,
             colors: true,
@@ -132,6 +132,21 @@ const serve = function() {
 };
 
 /**
+ * Generate page screenshots.
+ */
+const capture = async function() {
+  const pages = await puppy({ pages: 'src/pages/**/*' });
+  const screenshot = gulpScreenshot({
+    viewport: {
+      width: 1000,
+      height: 750,
+    },
+    exclude: page => !page.thumbnail || !page.thumbnail.match(/auto/i),
+  });
+  return pipeline(pages, screenshot, dest('dist/thumbnails'));
+};
+
+/**
  * Clean build directory
  */
 const clean = function() {
@@ -139,9 +154,10 @@ const clean = function() {
 };
 
 /**
- * Build task.
+ * Exported tasks.
  */
-const build = series(clean, publicFiles, bundle, html);
+const screenshot = series(capture, publicFiles, html);
+const build = series(clean, publicFiles, bundle, html, screenshot);
 
 module.exports = {
   clean,

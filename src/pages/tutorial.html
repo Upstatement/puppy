@@ -1,13 +1,17 @@
 ---
-title: 🐶 Tutorial
+title: Learn Puppy
 description: Learn Puppy in 15 minutes or less
 menu: false
 ---
 
 {% extends "@templates/layouts/base.twig" %}
 
+{% block meta %}
+  <link rel="icon" href="/static/img/favicon.png" />
+{% endblock %}
+
 {% block styles %}
-    <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('tutorial.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('tutorial.css') }}">
 {% endblock %}
 
 {% block content %}
@@ -54,7 +58,6 @@ menu: false
       <h2 class="heading">Pages</h2>
 
       <p>By default, the homepage of a Puppy project is the prototype <strong>index</strong>. It lists every page in your prototype. You can see it <a href="/" target="_blank" rel="noopener noreferrer">here</a>.</p>
-      <p>This tutorial page is the only page you'll see right now. Let's change that!</p>
 
       <h3>In this section you'll learn how to...</h3>
       <ul>
@@ -393,19 +396,8 @@ netlify deploy --dir=dist       # Deploy the dist directory
     <section id="outro">
       <h2 class="heading">So long, for now!</h2>
       <p>Thanks for spending the past 15 minutes with us!</p>
-      <p>If you think there's something in here you might want to refer back to, you can hide this page from your index without deleting it by adding the <code>hidden</code> flag to the top of <code>/src/pages/tutorial.html</code>:</p>
-
-      <pre>
----
-title: 🐶 Tutorial
-description: Learn Puppy in 15 minutes or less
-hidden: true
----
-      </pre>
-
-      <br>
-
-      <p>If you would rather <strong>remove this tutorial</strong> altogether make sure to:</p>
+      <p>Feel free to leave this page here to refer back to while you're getting your bearings.</p>
+      <p>When you're confident you've absorbed everything here you can <strong>remove this tutorial</strong> by:</p>
       <ul>
         <li>Remove the line importing <code>tutorial.scss</code> from <code>/src/scss/main.scss</code></li>
         <li>Remove the entrypoint for <code>tutorial.scss</code> in <code>webpack.config.js</code> (<a href="https://github.com/Upstatement/puppy/blob/master/webpack.config.js#L12">line 12</a>)</li>
