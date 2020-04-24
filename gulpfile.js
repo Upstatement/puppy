@@ -1,5 +1,6 @@
 const { src, dest, watch, series } = require('gulp');
 const del = require('del');
+const groupBy = require('lodash.groupby');
 const browserSync = require('browser-sync').create();
 const $ = require('gulp-load-plugins')();
 const log = require('gulplog');
@@ -35,6 +36,14 @@ const html = async function() {
   const twig = $.twig({
     namespaces: { templates: 'src/templates' },
     useFileContents: true,
+    filters: [
+      {
+        name: 'group',
+        func(collection, args) {
+          return groupBy(collection, ...args);
+        },
+      },
+    ],
   });
 
   const minify = $.if(

@@ -8,6 +8,8 @@ thumbnail: false
 {% extends "@templates/layouts/base.twig" %}
 
 {% set config = site.data['menu.json'] %}
+{% set groupedPages = site.pages|group('group') %}
+{% set ungroupedPages = groupedPages['undefined']|default([]) %}
 
 {% block styles %}
 <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('menu.css') }}">
@@ -38,12 +40,13 @@ thumbnail: false
 
 {% block content %}
 <nav class="home-menu">
+
+  {% if ungroupedPages is not empty %}
   <ul class="home-menu__list">
 
-    {% for p in site.pages if p.path != page.path and p.menu != false %}
+    {% for p in ungroupedPages if p.path != page.path and p.menu != false %}
       {% set thumbnail = p.thumbnail matches '/auto/i' ? p.screenshot : p.thumbnail %}
-
-      <li class="home-menu__item{% if thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
+      <li class="home-menu__item{% if p.thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
         <a class="home-menu__link" href="{{ puppy.url(p) }}">
 
           {% if thumbnail %}
@@ -76,8 +79,40 @@ thumbnail: false
         </a>
       </li>
     {% endfor %}
+
   </ul>
+  {% endif %}
+
+  {% for group, pages in groupedPages if group != 'undefined' %}
+    <section class="home-menu__group">
+      <h3 class="home-menu__group-head">{{ group }}</h3>
+      <ul class="home-menu__group-pages">
+      {% for p in pages if p.path != page.path and p.menu != false %}
+        {% set thumbnail = p.thumbnail matches '/auto/i' ? p.screenshot : p.thumbnail %}
+        <li class="home-menu__group-item">
+          <a href="{{ puppy.url(p) }} " class="home-menu__group-item-link">
+            {% if thumbnail %}
+              <img class="home-menu__small-thumb" src="{{ puppy.siteUrl('thumbnails/' ~ thumbnail) }}" alt="{{ p.title }}" />
+            {% endif %}
+            <div class="home-menu__small-text">
+              <div class="home-menu__small-text-inner">
+                <h2 class="home-menu__small-title">{{ p.title }}</h2>
+                {% if p.updated %}
+                  <h4 class="home-menu__small-updated">{{ p.updated }}</h4>
+                {% endif %}
+              </div>
+              {% include '@templates/svgs/menu/circle-arrow.twig' %}
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+
 </nav>
+
+
 {% endblock %}
 
 {% block footer %}
