@@ -81,10 +81,11 @@ thumbnail: false
       <h3 class="home-menu__group-head">{{ group }}</h3>
       <ul class="home-menu__group-pages">
       {% for p in pages if p.path != page.path and p.menu != false %}
+        {% set thumbnail = p.thumbnail matches '/auto/i' ? p.screenshot : p.thumbnail %}
         <li class="home-menu__group-item">
-          <a href="" class="home-menu__group-item-link">
-            {% if p.thumbnail %}
-              <img class="home-menu__small-thumb" src="{{ puppy.staticUrl('img/' ~ p.thumbnail) }}" alt="{{ p.title }}" />
+          <a href="{{ puppy.url(p) }} " class="home-menu__group-item-link">
+            {% if thumbnail %}
+              <img class="home-menu__small-thumb" src="{{ puppy.siteUrl('thumbnails/' ~ thumbnail) }}" alt="{{ p.title }}" />
             {% endif %}
             <div class="home-menu__small-text">
               <div class="home-menu__small-text-inner">
