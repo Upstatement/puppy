@@ -16,7 +16,13 @@ title: Prototype Index
 <header class="home-header">
   <div class="home-header__ups-lockup">
     {% if config.logo %}
-    <img class="logo" src="{{ config.logo.url }}" alt="{{ config.logo.alt | default('') }}" />
+      {% if config.logo.url %}
+        <a href="{{ config.logo.url }}" target="_blank">
+      {% endif %}
+      <img class="logo" src="{{ config.logo.src }}" alt="{{ config.logo.alt | default('') }}" />
+      {% if config.logo.url %}
+        </a>
+      {% endif %}
     {% endif %}
 
     {% if config.header_links|length %}
