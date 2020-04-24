@@ -41,7 +41,7 @@
     }
   },
   "dependencies": {
-    "@upstatement/puppy": "^0.6.0"
+    "@upstatement/puppy": "^0.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
@@ -64,6 +64,7 @@
     "gulp-if": "^3.0.0",
     "gulp-load-plugins": "^2.0.2",
     "gulp-twig": "^1.1.1",
+    "gulplog": "^1.0.0",
     "husky": "^4.0.4",
     "lint-staged": "^9.4.2",
     "lodash.groupby": "^4.6.0",

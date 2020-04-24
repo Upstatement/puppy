@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
     <meta name="description" content="{{ page.description | e('html_attr') }}">
+    {% block meta %}{% endblock %}
 
     {% block styles %}
     <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('main.css') }}">
@@ -13,11 +14,11 @@
   <body>
     <div class="home-content">
 
-      {% block header %}{% endblock header %}
+      {% block header %}{% endblock %}
 
       {% block content %}{% endblock %}
 
-      {% block footer %}{% endblock footer %}
+      {% block footer %}{% endblock %}
 
     </div>
 

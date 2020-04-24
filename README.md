@@ -42,6 +42,28 @@ npm run build
 npx serve dist
 ```
 
+#### Thumbnail Previews
+
+You can capture screenshots of your pages by setting the `thumbnail` attribute to `auto` in your page's front matter header:
+
+```yml
+thumbnail: auto
+```
+
+The next time you run `npm run build` a screenshot will be generated for that page and displayed in the prototype index.
+
+If the automated screenshots aren't cutting it, you can provide your own by dropping an image into the `public/thumbnails` directory and referencing its name in your page's front matter header:
+
+**Page**: src/pages/example.html
+
+**Thumbnail**: public/screenshots/example.png
+
+**Front Matter**:
+
+```yml
+thumbnail: example.png
+```
+
 ### Deployment
 
 The output of `npm run build` is a static site. You can drop the resulting `dist` directory on any web server.

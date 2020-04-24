@@ -2,6 +2,7 @@
 ## Note: menu items can be edited via /src/data/menu.json
 
 title: Prototype Index
+thumbnail: false
 ---
 
 {% extends "@templates/layouts/base.twig" %}
@@ -44,12 +45,13 @@ title: Prototype Index
   <ul class="home-menu__list">
 
     {% for p in ungroupedPages if p.path != page.path and p.menu != false %}
+      {% set thumbnail = p.thumbnail matches '/auto/i' ? p.screenshot : p.thumbnail %}
       <li class="home-menu__item{% if p.thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
         <a class="home-menu__link" href="{{ puppy.url(p) }}">
 
-          {% if p.thumbnail %}
+          {% if thumbnail %}
           <div class="home-menu__images">
-            <img src="{{ puppy.staticUrl('img/' ~ p.thumbnail) }}" alt="{{ p.title }}" />
+            <img src="{{ puppy.siteUrl('thumbnails/' ~ thumbnail) }}" alt="{{ p.title }}" />
           </div>
           {% endif %}
 
@@ -62,7 +64,7 @@ title: Prototype Index
               {% if p.description %}
                 <p class="home-menu__description">{{ p.description }}</p>
               {% endif %}
-              {% if p.thumbnail %}
+              {% if thumbnail %}
                 {% include '@templates/svgs/menu/circle-arrow.twig' %}
               {% endif %}
             </div>
