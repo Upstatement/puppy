@@ -69,6 +69,13 @@ thumbnail: false
               {% endif %}
             </div>
           </div>
+
+          {% if not thumbnail %}
+            <div class="home-menu__images">
+              {% include '@templates/svgs/menu/circle-arrow.twig' %}
+            </div>
+          {% endif %}
+
         </a>
       </li>
     {% endfor %}
