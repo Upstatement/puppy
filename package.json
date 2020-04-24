@@ -74,7 +74,7 @@
     "sass-loader": "^8.0.2",
     "stylelint": "^12.0.1",
     "stylelint-config-sass-guidelines": "^6.1.0",
-    "webpack": "^4.41.5",
+    "webpack": "^4.42.0",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-modernizr-loader": "^5.0.0"
   }
