@@ -1,7 +1,8 @@
 {
   "logo": {
-    "url": "/static/img/ups-logo.svg",
-    "alt": "Upstatement"
+    "src": "/static/img/ups-logo.svg",
+    "alt": "Upstatement",
+    "url": "https://upstatement.com/"
   },
   "header_links": [
     {
