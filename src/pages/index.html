@@ -58,11 +58,11 @@ thumbnail: false
           <div class="home-menu__text">
             <div class="home-menu__text-inner">
               <h2 class="home-menu__title">{{ p.title }}</h2>
-              {% if p.updated %}
-                <h4 class="home-menu__updated">{{ p.updated }}</h4>
-              {% endif %}
               {% if p.description %}
                 <p class="home-menu__description">{{ p.description }}</p>
+              {% endif %}
+              {% if p.updated %}
+                <h4 class="home-menu__updated">{{ p.updated }}</h4>
               {% endif %}
               {% if thumbnail %}
                 {% include '@templates/svgs/menu/circle-arrow.twig' %}

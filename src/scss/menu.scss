@@ -68,13 +68,11 @@ $sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 @mixin updated {
   color: $c-red;
   font: 400 12px / 1.5 $sans;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.01rem;
 }
 
 @mixin description {
-  // color: $c-gray;
   font: 400 13px / 1.5 $sans;
-
   @media (min-width: $bp-lg) {
     font-size: 15px;
   }
@@ -296,6 +294,7 @@ a.home-header__outlinks-link {
 
 .home-menu__description {
   @include description;
+  margin-bottom: 1rem;
   @media (min-width: $bp-lg) {
     @include grid-width(2);
     font-size: 15px;
@@ -345,13 +344,11 @@ a.home-header__outlinks-link {
     }
   }
 
+
   .home-menu__description {
     margin-bottom: 1rem;
     max-width: none;
     width: 100%;
-    @media (min-width: $bp-split-thumbed-item) {
-      margin-bottom: 0;
-    }
   }
 
   .home-menu__images {
@@ -443,7 +440,6 @@ a.home-header__outlinks-link {
 
 .home-menu__small-updated {
   @include updated;
-  margin-bottom: 0.5rem;
 }
 
 .home-menu__small-description {
