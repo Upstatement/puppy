@@ -5,64 +5,64 @@ title: Prototype Index
 thumbnail: false
 ---
 
-{% extends "@templates/layouts/base.twig" %}
+{% extends "@templates/layouts/menu.twig" %}
 
 {% set config = site.data['menu.json'] %}
 {% set groupedPages = site.pages|group('group') %}
 {% set ungroupedPages = groupedPages['undefined']|default([]) %}
 
-{% block styles %}
-<link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('menu.css') }}">
-{% endblock %}
-
-{% block header %}
-<header class="home-header">
-  <div class="home-header__ups-lockup">
+{% block content %}
+<header class="menu-header">
+  <div class="menu-header__ups-lockup">
     {% if config.logo %}
-    <img class="logo" src="{{ config.logo.url }}" alt="{{ config.logo.alt | default('') }}" />
+      {% if config.logo.url %}
+        <a href="{{ config.logo.url }}" target="_blank">
+      {% endif %}
+      <img class="logo" src="{{ config.logo.src }}" alt="{{ config.logo.alt | default('') }}" />
+      {% if config.logo.url %}
+        </a>
+      {% endif %}
     {% endif %}
 
     {% if config.header_links|length %}
-    <nav class="home-header__outlinks">
-      <ul class="home-header__outlinks-list">
+    <nav class="menu-header__outlinks">
+      <ul class="menu-header__outlinks-list">
         {% for link in config.header_links %}
-        <li class="home-header__outlinks-item">
-          <a class="home-header__outlinks-link" href="{{ link.url }}">{{ link.label }}</a>
+        <li class="menu-header__outlinks-item">
+          <a class="menu-header__outlinks-link" href="{{ link.url }}">{{ link.label }}</a>
         </li>
         {% endfor %}
       </ul>
     </nav>
     {% endif %}
   </div>
-  <h1 class="home-header__title">{{ page.title }}</h1>
+  <h1 class="menu-header__title">{{ page.title }}</h1>
 </header>
-{% endblock %}
 
-{% block content %}
-<nav class="home-menu">
+<nav class="menu-content">
 
   {% if ungroupedPages is not empty %}
-  <ul class="home-menu__list">
+  <ul class="menu-content__list">
 
     {% for p in ungroupedPages if p.path != page.path and p.menu != false %}
       {% set thumbnail = p.thumbnail matches '/auto/i' ? p.screenshot : p.thumbnail %}
-      <li class="home-menu__item{% if p.thumbnail %} home-menu__item--has-thumbnail{% else %} home-menu__item--no-thumbnail{% endif %}">
-        <a class="home-menu__link" href="{{ puppy.url(p) }}">
+      <li class="menu-content__item{% if p.thumbnail %} menu-content__item--has-thumbnail{% else %} menu-content__item--no-thumbnail{% endif %}">
+        <a class="menu-content__link" href="{{ puppy.url(p) }}">
 
           {% if thumbnail %}
-          <div class="home-menu__images">
+          <div class="menu-content__images">
             <img src="{{ puppy.siteUrl('thumbnails/' ~ thumbnail) }}" alt="{{ p.title }}" />
           </div>
           {% endif %}
 
-          <div class="home-menu__text">
-            <div class="home-menu__text-inner">
-              <h2 class="home-menu__title">{{ p.title }}</h2>
+          <div class="menu-content__text">
+            <div class="menu-content__text-inner">
+              <h2 class="menu-content__title">{{ p.title }}</h2>
               {% if p.description %}
-                <p class="home-menu__description">{{ p.description }}</p>
+                <p class="menu-content__description">{{ p.description }}</p>
               {% endif %}
               {% if p.updated %}
-                <h4 class="home-menu__updated">{{ p.updated }}</h4>
+                <h4 class="menu-content__updated">{{ p.updated }}</h4>
               {% endif %}
               {% if thumbnail %}
                 {% include '@templates/svgs/menu/circle-arrow.twig' %}
@@ -71,7 +71,7 @@ thumbnail: false
           </div>
 
           {% if not thumbnail %}
-            <div class="home-menu__images">
+            <div class="menu-content__images">
               {% include '@templates/svgs/menu/circle-arrow.twig' %}
             </div>
           {% endif %}
@@ -84,21 +84,21 @@ thumbnail: false
   {% endif %}
 
   {% for group, pages in groupedPages if group != 'undefined' %}
-    <section class="home-menu__group">
-      <h3 class="home-menu__group-head">{{ group }}</h3>
-      <ul class="home-menu__group-pages">
+    <section class="menu-content__group">
+      <h3 class="menu-content__group-head">{{ group }}</h3>
+      <ul class="menu-content__group-pages">
       {% for p in pages if p.path != page.path and p.menu != false %}
         {% set thumbnail = p.thumbnail matches '/auto/i' ? p.screenshot : p.thumbnail %}
-        <li class="home-menu__group-item">
-          <a href="{{ puppy.url(p) }} " class="home-menu__group-item-link">
+        <li class="menu-content__group-item">
+          <a href="{{ puppy.url(p) }} " class="menu-content__group-item-link">
             {% if thumbnail %}
-              <img class="home-menu__small-thumb" src="{{ puppy.siteUrl('thumbnails/' ~ thumbnail) }}" alt="{{ p.title }}" />
+              <img class="menu-content__small-thumb" src="{{ puppy.siteUrl('thumbnails/' ~ thumbnail) }}" alt="{{ p.title }}" />
             {% endif %}
-            <div class="home-menu__small-text">
-              <div class="home-menu__small-text-inner">
-                <h2 class="home-menu__small-title">{{ p.title }}</h2>
+            <div class="menu-content__small-text">
+              <div class="menu-content__small-text-inner">
+                <h2 class="menu-content__small-title">{{ p.title }}</h2>
                 {% if p.updated %}
-                  <h4 class="home-menu__small-updated">{{ p.updated }}</h4>
+                  <h4 class="menu-content__small-updated">{{ p.updated }}</h4>
                 {% endif %}
               </div>
               {% include '@templates/svgs/menu/circle-arrow.twig' %}
@@ -112,15 +112,10 @@ thumbnail: false
 
 </nav>
 
-
-{% endblock %}
-
-{% block footer %}
-<footer class="home-footer">
-  <div class="home-footer__inner">
+<footer class="menu-footer">
+  <div class="menu-footer__inner">
     <p><a href="https://github.com/Upstatement/puppy">Built with Puppy</a></p>
   </div>
 </footer>
-{% endblock %}
 
-{% block scripts %}{% endblock %}
+{% endblock %}

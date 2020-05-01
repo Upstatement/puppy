@@ -6,19 +6,11 @@
     <title>{{ page.title }}</title>
     <meta name="description" content="{{ page.description | e('html_attr') }}">
     {% block meta %}{% endblock %}
-
-    {% block styles %}
-    <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('main.css') }}">
-    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ puppy.assetUrl('menu.css') }}">
   </head>
   <body>
-    <div class="site-content">
+    <div class="menu-wrap">
       {% block content %}{% endblock %}
     </div>
-
-    {% block scripts %}
-    <script type="text/javascript" src="{{ puppy.assetUrl('vendor.js') }}"></script>
-    <script type="text/javascript" src="{{ puppy.assetUrl('main.js') }}"></script>
-    {% endblock %}
   </body>
 </html>
