@@ -4,6 +4,17 @@
 
 > {{ Your next great prototype description }}
 
+## 📜 About
+
+- Pages are authored in HTML or, optionally, [Twig](https://github.com/twigjs/twig.js/wiki) and live in the [`src/pages`](src/pages) directory.
+- Twig templates and partials live in [`src/templates`](src/templates).
+- Site data files live in [`src/data`](src/data). Drop any `.json`, `.yml`, or `.js` file exporting a function into this directory and access the resulting data in Twig templates using `{{ site.data['path/to/file.ext'] }}`. Powered by [Puppy](https://www.npmjs.com/package/@upstatement/puppy).
+- Styles are authored with [Sass](https://sass-lang.com/) and live in [`src/scss`](src/scss).
+- Javascripts live in [`src/js`](src/js). They are transipiled at build time with [Babel](https://babeljs.io/) so that they can take advantage of [modern JS syntax](https://babeljs.io/docs/en/learn)
+- Any files in the [`public`](public) directory are copied to the web root recursively at build time.
+- Static assets are bundled at build time using [Webpack](https://webpack.js.org/).
+- All source assets are pulled together with [Gulp](https://gulpjs.com/) and used to generate a static site in the `dist` directory.
+
 ## ✨ Install
 
 ```sh
