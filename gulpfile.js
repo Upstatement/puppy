@@ -158,8 +158,8 @@ const capture = async function() {
     // Global options for `Page.setViewport()`
     // https://pptr.dev/#?product=Puppeteer&version=v2.1.1&show=api-pagesetviewportviewport
     viewport: {
-      width: 1000,
-      height: 750,
+      width: 1500,
+      height: 1000,
       deviceScaleFactor: 1,
     },
     // Global options for `Page.goto()
