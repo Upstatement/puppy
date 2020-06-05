@@ -145,13 +145,41 @@ const serve = function() {
  */
 const capture = async function() {
   const pages = await puppy({ pages: 'src/pages/**/*' });
+
+  // Helper function to determine if the page `thumbnail` property is set to `auto`.
+  const hasAutoConfig = page =>
+    typeof page.thumbnail === 'string' && page.thumbnail.match(/auto/i) !== null;
+
+  // Helper function to determine if the page `thumbnail` property is set to a config object.
+  const hasPageCaptureOptions = page =>
+    page.thumbnail !== null && typeof page.thumbnail === 'object';
+
   const screenshot = gulpScreenshot({
+    // Global options for `Page.setViewport()`
+    // https://pptr.dev/#?product=Puppeteer&version=v2.1.1&show=api-pagesetviewportviewport
     viewport: {
-      width: 1000,
-      height: 750,
+      width: 1500,
+      height: 1000,
+      deviceScaleFactor: 1,
     },
-    exclude: page => !page.thumbnail || !page.thumbnail.match(/auto/i),
+    // Global options for `Page.goto()
+    // https://pptr.dev/#?product=Puppeteer&version=v2.1.1&show=api-pagegotourl-options
+    goto: {
+      waitUntil: 'networkidle2',
+    },
+    // Global options for `Page.screenshot()
+    // https://pptr.dev/#?product=Puppeteer&version=v2.1.1&show=api-pagescreenshotoptions
+    screenshot: {
+      type: 'png',
+    },
+
+    // Extract page-specific screenshot options from front-matter data.
+    pageCaptureOptions: page => (hasPageCaptureOptions(page) ? page.thumbnail : null),
+
+    // Determine whether or not a given page should be excluded from automated screenshots.
+    exclude: page => !page.thumbnail || (!hasAutoConfig(page) && !hasPageCaptureOptions(page)),
   });
+
   return pipeline(pages, screenshot, dest('dist/thumbnails'));
 };
 
