@@ -89,6 +89,15 @@ netlify init
 netlify deploy
 ```
 
+## Examples & Links
+
+* Visit the [Puppy Demo](https://puppy-demo.upstatement.com/) to see what a sample project https://puppy-demo.upstatement.com/
+* Read the [tutorial](https://puppy-template.upstatement.com/tutorial.html) to get up and running
+* View the [default template](https://puppy-template.upstatement.com/): this is the starting place once you clone and run Puppy for the first time.
+
+![Overview](https://user-images.githubusercontent.com/1298086/85171525-2b741b00-b23d-11ea-9542-0d223cd0ef2d.png)
+
+
 ## 📝 License
 
 Copyright &copy; 2020 Upstatement, LLC
