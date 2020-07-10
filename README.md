@@ -91,10 +91,10 @@ netlify deploy
 
 ## Examples & Links
 
-* Visit the [Puppy Demo](https://puppy-demo.upstatement.com/) to see what a sample project https://puppy-demo.upstatement.com/
-* Follow the [*tutorial*](https://puppy-template.upstatement.com/tutorial.html) to get up and running
+* **Blog Post:** Read about [the project](https://medium.com/stories-from-upstatement/hello-puppy-a-speedy-web-development-starter-kit-from-upstatement-92b94d1f1147?source=collection_home---4------0-----------------------), its philosophy and goals
+* **Demo:** View the [Puppy Demo](https://puppy-demo.upstatement.com/) to see what a sample project https://puppy-demo.upstatement.com/
+* **Tutorial:** Follow the [tutorial](https://puppy-template.upstatement.com/tutorial.html) to get up and running
 * View the [default template](https://puppy-template.upstatement.com/): this is the starting place once you clone and run Puppy for the first time
-* Read about [the project](https://medium.com/stories-from-upstatement/hello-puppy-a-speedy-web-development-starter-kit-from-upstatement-92b94d1f1147?source=collection_home---4------0-----------------------), its philosophy and goals
 
 ![Overview](https://user-images.githubusercontent.com/1298086/85171525-2b741b00-b23d-11ea-9542-0d223cd0ef2d.png)
 
