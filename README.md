@@ -65,9 +65,9 @@ The next time you run `npm run build` a screenshot will be generated for that pa
 
 If the automated screenshots aren't cutting it, you can provide your own by dropping an image into the `public/thumbnails` directory and referencing its name in your page's front matter header:
 
-**Page**: src/pages/example.html
+**Page**: `src/pages/example.html`
 
-**Thumbnail**: public/screenshots/example.png
+**Thumbnail**: `public/screenshots/example.png`
 
 **Front Matter**:
 
