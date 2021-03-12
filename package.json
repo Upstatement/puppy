@@ -1,9 +1,22 @@
 {
-  "private": true,
+  "name": "@upstatement/puppy-template",
+  "version": "2.0.0",
+  "description": "Starter kit and delivery system for building static prototypes with Twig",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Upstatement/puppy.git"
+  },
+  "author": "Upstatement Tech <tech@upstatement.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Upstatement/puppy/issues"
+  },
+  "homepage": "https://github.com/Upstatement/puppy#readme",
   "engines": {
-    "node": "10.13.0",
+    "node": "10.16.1",
     "npm": "6.4.1"
   },
+  "private": true,
   "scripts": {
     "build:dev": "gulp build",
     "build": "NODE_ENV=production gulp build",
