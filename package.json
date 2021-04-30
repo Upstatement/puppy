@@ -1,6 +1,7 @@
 {
   "name": "@upstatement/puppy-template",
   "version": "2.0.0",
+  "private": true,
   "description": "Starter kit and delivery system for building static prototypes with Twig",
   "repository": {
     "type": "git",
@@ -13,10 +14,9 @@
   },
   "homepage": "https://github.com/Upstatement/puppy#readme",
   "engines": {
-    "node": "10.16.1",
-    "npm": "6.4.1"
+    "node": "14.16.0",
+    "npm": "7.11.2"
   },
-  "private": true,
   "scripts": {
     "build:dev": "gulp build",
     "build": "NODE_ENV=production gulp build",
@@ -29,61 +29,54 @@
     "lint:fix-js": "npm run lint:js -- --fix",
     "lint:scss": "stylelint ./src/scss/**/*",
     "lint:fix-scss": "npm run lint:scss -- --fix",
-    "format": "prettier --write **/*"
+    "format": "prettier --write **/*",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "ava": {
     "babel": false
   },
   "lint-staged": {
     "*.{js,css,json,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.js": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
     "*.scss": [
-      "stylelint --fix",
-      "git add"
+      "stylelint --fix"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "dependencies": {
-    "@upstatement/puppy": "^0.10.0"
+    "@upstatement/puppy": "^0.11.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@upstatement/eslint-config": "^0.4.2",
+    "@babel/core": "^7.14.0",
+    "@babel/eslint-parser": "^7.13.14",
+    "@babel/preset-env": "^7.14.0",
+    "@upstatement/eslint-config": "^1.0.0",
     "@upstatement/prettier-config": "^0.3.0",
     "autoprefixer": "^9.7.4",
     "ava": "^2.4.0",
-    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.9.9",
     "bs-fullscreen-message": "^1.1.0",
     "css-loader": "^3.4.2",
     "del": "^5.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
     "gulp": "^4.0.2",
     "gulp-htmlmin": "^5.0.1",
     "gulp-if": "^3.0.0",
     "gulp-load-plugins": "^2.0.2",
     "gulp-twig": "^1.1.1",
     "gulplog": "^1.0.0",
-    "husky": "^4.0.4",
-    "lint-staged": "^9.4.2",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
     "lodash.groupby": "^4.6.0",
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.2.1",
     "sass": "^1.24.3",
     "sass-loader": "^8.0.2",
     "stylelint": "^12.0.1",
