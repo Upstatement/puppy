@@ -1,6 +1,6 @@
-import test from 'ava';
-import { promisify } from 'node:util';
-import { exec } from 'node:child_process';
+const test = require('ava');
+const { promisify } = require('util');
+const { exec } = require('child_process');
 
 const asyncExec = promisify(exec);
 

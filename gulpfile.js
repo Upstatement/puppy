@@ -16,7 +16,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 const bundler = webpack(webpackConfig);
 const pipeline = util.promisify(stream.pipeline);
 
-log.info('Build Mode: %s', isProduction ? 'Production' : 'Development');
+// eslint-disable-next-line
+console.log('Build Mode:', isProduction ? 'Production' : 'Development');
 
 /**
  * Compile HTML
