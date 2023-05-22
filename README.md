@@ -53,7 +53,16 @@ npm run build
 npx serve dist
 ```
 
-#### Thumbnail Previews
+### Removing Tests
+
+This repository includes some automated [tests](https://github.com/Upstatement/puppy/tree/main/tests) that are not necessary when using Puppy as a starting template. To remove them, follow these steps:
+
+1. Remove ava from project dependencies `npm uninstall --save-dev ava`
+2. Remove the [`test` npm script](https://github.com/Upstatement/puppy/blob/main/package.json#L25)
+3. Remove [`ava` config from package.json](https://github.com/Upstatement/puppy/blob/main/package.json#L36-L38)
+4. Remove the [test step in the GitHub workflow](https://github.com/Upstatement/puppy/blob/main/.github/workflows/main.yml#L33)
+
+### Thumbnail Previews
 
 You can capture screenshots of your pages by setting the `thumbnail` attribute to `auto` in your page's front matter header:
 
@@ -75,15 +84,13 @@ If the automated screenshots aren't cutting it, you can provide your own by drop
 thumbnail: example.png
 ```
 
-### Deployment
+## Deployment
 
 The output of `npm run build` is a static site. You can drop the resulting `dist` directory on any web server.
 
-An excellent choice is [Netlify](https://www.netlify.com/).
+An excellent choice is [Netlify](https://www.netlify.com/). You can deploy your work to Netlify with their [CLI tool](https://github.com/netlify/cli).
 
-You can deploy your work to Netlify with their [CLI tool](https://github.com/netlify/cli).
-
-```
+```sh
 npm install netlify-cli -g
 netlify init
 netlify deploy
@@ -91,13 +98,12 @@ netlify deploy
 
 ## Examples & Links
 
-* **Blog Post:** Read about [the project](https://medium.com/stories-from-upstatement/hello-puppy-a-speedy-web-development-starter-kit-from-upstatement-92b94d1f1147?source=collection_home---4------0-----------------------), its philosophy and goals
-* **Demo:** View the [Puppy Demo](https://github.com/Upstatement/puppy-demo) to see a sample project https://puppy-demo.upstatement.com/
-* **Tutorial:** Follow the [tutorial](https://puppy-template.upstatement.com/tutorial.html) to get up and running
-* View the [default template](https://puppy-template.upstatement.com/): this is the starting place once you clone and run Puppy for the first time
+- **Blog Post:** Read about [the project](https://medium.com/stories-from-upstatement/hello-puppy-a-speedy-web-development-starter-kit-from-upstatement-92b94d1f1147?source=collection_home---4------0-----------------------), its philosophy and goals
+- **Demo:** View the [Puppy Demo](https://github.com/Upstatement/puppy-demo) to see a sample project <https://puppy-demo.upstatement.com/>
+- **Tutorial:** Follow the [tutorial](https://puppy-template.upstatement.com/tutorial.html) to get up and running
+- View the [default template](https://puppy-template.upstatement.com/): this is the starting place once you clone and run Puppy for the first time
 
 ![Overview](https://user-images.githubusercontent.com/1298086/85171525-2b741b00-b23d-11ea-9542-0d223cd0ef2d.png)
-
 
 ## 📝 License
 
