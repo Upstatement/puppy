@@ -28,7 +28,7 @@
     "lint:fix-js": "npm run lint:js -- --fix",
     "lint:scss": "stylelint ./src/scss/**/*",
     "lint:fix-scss": "npm run lint:scss -- --fix",
-    "format": "prettier --write **/*",
+    "format": "prettier --write src/**/*",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
   },
