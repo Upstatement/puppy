@@ -34,10 +34,6 @@ module.exports = {
           },
         ],
       },
-      {
-        loader: 'webpack-modernizr-loader',
-        test: /\.modernizrrc\.js$/,
-      },
     ],
   },
   optimization: {
@@ -50,11 +46,6 @@ module.exports = {
           enforce: true,
         },
       },
-    },
-  },
-  resolve: {
-    alias: {
-      modernizr$: path.resolve(__dirname, '.modernizrrc.js'),
     },
   },
   plugins: [
